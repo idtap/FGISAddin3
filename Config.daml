@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArcGIS defaultAssembly="FGISAddin3.dll" defaultNamespace="FGISAddin3" xmlns="http://schemas.esri.com/DADF/Registry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.esri.com/DADF/Registry file:///C:/Program%20Files/ArcGIS/Pro/bin/ArcGIS.Desktop.Framework.xsd">
+  <AddInInfo id="{98f0e9b8-740a-43eb-ba9e-8249112e1ef9}" version="1.0" desktopVersion="3.0.34047">
+    <Name>FGISAddin3</Name>
+    <Description>林保署增益集</Description>
+    <Image>Images\AddinDesktop32.png</Image>
+    <Author>IDT Team</Author>
+    <Company>IDT</Company>
+    <Date>10/04/2023 3:16:05 PM, 2023</Date>
+    <Subject>Geoprocessing</Subject>
+    <!-- Note subject can be one or more of these topics:
+                    Content, Framework, Editing, Geodatabase, Geometry, Geoprocessing, Layouts, Map Authoring, Map Exploration -->
+  </AddInInfo>
+  <modules>
+    <insertModule id="FGISAddin3_Module" className="FGISAddin3Module" autoLoad="false" caption="Module1">
+      <!-- uncomment to have the control hosted on a separate tab-->
+      <tabs>
+        <tab id="FGISAddin3_Tab1" caption="林保署增益集">
+          <group refID="FGISAddin3_Group1"/>
+          <group refID="FGISAddin3_Group2"/>
+          <group refID="FGISAddin3_Group3"/>
+        </tab>
+      </tabs>
+      <groups>
+        <group id="FGISAddin3_Group1" caption="面積微調模組" appearsOnAddInTab="false" keytip="G1">
+          <button refID="FGISAddin3_AutoAreaTool" size="large" />
+        </group>
+        <group id="FGISAddin3_Group2" caption="地籍查詢模組" appearsOnAddInTab="false" keytip="G2">
+          <button refID="FGISAddin3_MoiCadastreDockpane_ShowButton" size="large" />
+          <button refID="FGISAddin3_CoaCadastreDockpane_ShowButton" size="large" />
+        </group>
+        <group id="FGISAddin3_Group3" caption="影像查詢模組" appearsOnAddInTab="false" keytip="G3">
+          <button refID="FGISAddin3_ImageMapSetting" size="large" />
+          <button refID="FGISAddin3_ImageMapQuery"   size="large" />
+        </group>
+      </groups>
+      <controls>
+        <!-- add your controls here -->
+        <tool id="FGISAddin3_AutoAreaTool" caption="面積微調" keytip="T1" 
+              className="AutoAreaTool" loadOnClick="true"  
+              smallImage="Images\GenericButtonBlue16.png"
+              largeImage="Images\GenericButtonBlue32.png"
+              condition="esri_mapping_mapPane">
+          <tooltip heading="面積自動修正">自動調整多邊形至符合面積<disabledText /></tooltip>
+        </tool>
+        <button id="FGISAddin3_MoiCadastreDockpane_ShowButton" caption="地政司" keytip="B1" 
+                className="MoiCadastreDockpane_ShowButton" loadOnClick="true" 
+                smallImage="Images\GenericButtonBlue16.png"
+                largeImage="Images\GenericButtonBlue32.png">
+          <tooltip heading="地政司地籍查詢">
+            依圖面位置或地段號（以地號為範圍）查詢地籍圖
+          </tooltip>
+        </button>
+        <button id="FGISAddin3_CoaCadastreDockpane_ShowButton" caption="農業部" keytip="B2" 
+                className="CoaCadastreDockpane_ShowButton" loadOnClick="true" 
+                smallImage="Images\GenericButtonBlue16.png"
+                largeImage="Images\GenericButtonBlue32.png">
+          <tooltip heading="農業部地籍查詢">
+            針對農委會供應之地籍圖版次，依圖面位置或地段（以段為範圍）載入地籍圖
+          </tooltip>
+        </button>
+        <button id="FGISAddin3_ImageMapSetting" caption="影像來源維護" keytip="B3" 
+                className="ImageMapSetting_ShowButton" loadOnClick="true" 
+                smallImage="Images\GenericButtonBlue16.png"
+                largeImage="Images\GenericButtonBlue32.png">
+          <tooltip heading="影像來源資料維護">
+            設定維護農航所(或其他)全國鑲嵌、各版次正射影像及無人機影像等各式影像介接來源參數
+          </tooltip>
+        </button>
+        <button id="FGISAddin3_ImageMapQuery" caption="影像查詢比對" keytip="B4" 
+                className="ImageMapQuery_ShowButton" loadOnClick="true" 
+                smallImage="Images\GenericButtonBlue16.png"
+                largeImage="Images\GenericButtonBlue32.png">
+          <tooltip heading="影像查詢比對">
+            針對農航所(或其他)設定的介接來源提供影像查詢服務
+          </tooltip>
+        </button>
+      </controls>
+      <dockPanes>
+        <dockPane id="FGISAddin3_MoiCadastreDockpane" caption="地政司地籍查詢"
+          className="MoiCadastreDockpaneViewModel" dock="group" dockWith="esri_core_contentsDockPane">
+          <content className="MoiCadastreDockpaneView" />
+        </dockPane>
+        <dockPane id="FGISAddin3_CoaCadastreDockpane" caption="農業部地籍查詢"
+          className="CoaCadastreDockpaneViewModel" dock="group" dockWith="esri_core_contentsDockPane">
+          <content className="CoaCadastreDockpaneView" />
+        </dockPane>
+        <dockPane id="FGISAddin3_ImageMapQueryDockpane" caption="影像查詢"
+          className="ImageMapQueryDockpaneViewModel" dock="group" dockWith="esri_core_contentsDockPane">
+          <content className="ImageMapQueryDockpaneView" />
+        </dockPane>
+      </dockPanes>
+    </insertModule>
+  </modules>
+</ArcGIS>

@@ -1,0 +1,2330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AdminCode" xml:space="preserve">
+    <value>[
+  {
+    "county": "臺北市",
+    "town": "松山區",
+    "countycode": "A",
+    "towncode": "01"
+  },
+  {
+    "county": "臺北市",
+    "town": "大安區",
+    "countycode": "A",
+    "towncode": "02"
+  },
+  {
+    "county": "臺北市",
+    "town": "中正區",
+    "countycode": "A",
+    "towncode": "03"
+  },
+  {
+    "county": "臺北市",
+    "town": "萬華區",
+    "countycode": "A",
+    "towncode": "05"
+  },
+  {
+    "county": "臺北市",
+    "town": "大同區",
+    "countycode": "A",
+    "towncode": "09"
+  },
+  {
+    "county": "臺北市",
+    "town": "中山區",
+    "countycode": "A",
+    "towncode": 10
+  },
+  {
+    "county": "臺北市",
+    "town": "文山區",
+    "countycode": "A",
+    "towncode": 11
+  },
+  {
+    "county": "臺北市",
+    "town": "南港區",
+    "countycode": "A",
+    "towncode": 13
+  },
+  {
+    "county": "臺北市",
+    "town": "內湖區",
+    "countycode": "A",
+    "towncode": 14
+  },
+  {
+    "county": "臺北市",
+    "town": "士林區",
+    "countycode": "A",
+    "towncode": 15
+  },
+  {
+    "county": "臺北市",
+    "town": "北投區",
+    "countycode": "A",
+    "towncode": 16
+  },
+  {
+    "county": "臺北市",
+    "town": "信義區",
+    "countycode": "A",
+    "towncode": 17
+  },
+  {
+    "county": "臺中市",
+    "town": "中區",
+    "countycode": "B",
+    "towncode": "01"
+  },
+  {
+    "county": "臺中市",
+    "town": "東區",
+    "countycode": "B",
+    "towncode": "02"
+  },
+  {
+    "county": "臺中市",
+    "town": "南區",
+    "countycode": "B",
+    "towncode": "03"
+  },
+  {
+    "county": "臺中市",
+    "town": "西區",
+    "countycode": "B",
+    "towncode": "04"
+  },
+  {
+    "county": "臺中市",
+    "town": "北區",
+    "countycode": "B",
+    "towncode": "05"
+  },
+  {
+    "county": "臺中市",
+    "town": "西屯區",
+    "countycode": "B",
+    "towncode": "06"
+  },
+  {
+    "county": "臺中市",
+    "town": "南屯區",
+    "countycode": "B",
+    "towncode": "07"
+  },
+  {
+    "county": "臺中市",
+    "town": "北屯區",
+    "countycode": "B",
+    "towncode": "08"
+  },
+  {
+    "county": "臺中市",
+    "town": "豐原區",
+    "countycode": "B",
+    "towncode": "09"
+  },
+  {
+    "county": "臺中市",
+    "town": "東勢區",
+    "countycode": "B",
+    "towncode": 10
+  },
+  {
+    "county": "臺中市",
+    "town": "大甲區",
+    "countycode": "B",
+    "towncode": 11
+  },
+  {
+    "county": "臺中市",
+    "town": "清水區",
+    "countycode": "B",
+    "towncode": 12
+  },
+  {
+    "county": "臺中市",
+    "town": "沙鹿區",
+    "countycode": "B",
+    "towncode": 13
+  },
+  {
+    "county": "臺中市",
+    "town": "梧棲區",
+    "countycode": "B",
+    "towncode": 14
+  },
+  {
+    "county": "臺中市",
+    "town": "后里區",
+    "countycode": "B",
+    "towncode": 15
+  },
+  {
+    "county": "臺中市",
+    "town": "神岡區",
+    "countycode": "B",
+    "towncode": 16
+  },
+  {
+    "county": "臺中市",
+    "town": "潭子區",
+    "countycode": "B",
+    "towncode": 17
+  },
+  {
+    "county": "臺中市",
+    "town": "大雅區",
+    "countycode": "B",
+    "towncode": 18
+  },
+  {
+    "county": "臺中市",
+    "town": "新社區",
+    "countycode": "B",
+    "towncode": 19
+  },
+  {
+    "county": "臺中市",
+    "town": "石岡區",
+    "countycode": "B",
+    "towncode": 20
+  },
+  {
+    "county": "臺中市",
+    "town": "外埔區",
+    "countycode": "B",
+    "towncode": 21
+  },
+  {
+    "county": "臺中市",
+    "town": "大安區",
+    "countycode": "B",
+    "towncode": 22
+  },
+  {
+    "county": "臺中市",
+    "town": "烏日區",
+    "countycode": "B",
+    "towncode": 23
+  },
+  {
+    "county": "臺中市",
+    "town": "大肚區",
+    "countycode": "B",
+    "towncode": 24
+  },
+  {
+    "county": "臺中市",
+    "town": "龍井區",
+    "countycode": "B",
+    "towncode": 25
+  },
+  {
+    "county": "臺中市",
+    "town": "霧峰區",
+    "countycode": "B",
+    "towncode": 26
+  },
+  {
+    "county": "臺中市",
+    "town": "太平區",
+    "countycode": "B",
+    "towncode": 27
+  },
+  {
+    "county": "臺中市",
+    "town": "大里區",
+    "countycode": "B",
+    "towncode": 28
+  },
+  {
+    "county": "臺中市",
+    "town": "和平區",
+    "countycode": "B",
+    "towncode": 29
+  },
+  {
+    "county": "基隆市",
+    "town": "中正區",
+    "countycode": "C",
+    "towncode": "01"
+  },
+  {
+    "county": "基隆市",
+    "town": "七堵區",
+    "countycode": "C",
+    "towncode": "02"
+  },
+  {
+    "county": "基隆市",
+    "town": "暖暖區",
+    "countycode": "C",
+    "towncode": "03"
+  },
+  {
+    "county": "基隆市",
+    "town": "仁愛區",
+    "countycode": "C",
+    "towncode": "04"
+  },
+  {
+    "county": "基隆市",
+    "town": "中山區",
+    "countycode": "C",
+    "towncode": "05"
+  },
+  {
+    "county": "基隆市",
+    "town": "安樂區",
+    "countycode": "C",
+    "towncode": "06"
+  },
+  {
+    "county": "基隆市",
+    "town": "信義區",
+    "countycode": "C",
+    "towncode": "07"
+  },
+  {
+    "county": "臺南市",
+    "town": "東區",
+    "countycode": "D",
+    "towncode": "01"
+  },
+  {
+    "county": "臺南市",
+    "town": "南區",
+    "countycode": "D",
+    "towncode": "02"
+  },
+  {
+    "county": "臺南市",
+    "town": "北區",
+    "countycode": "D",
+    "towncode": "04"
+  },
+  {
+    "county": "臺南市",
+    "town": "安南區",
+    "countycode": "D",
+    "towncode": "06"
+  },
+  {
+    "county": "臺南市",
+    "town": "安平區",
+    "countycode": "D",
+    "towncode": "07"
+  },
+  {
+    "county": "臺南市",
+    "town": "中西區",
+    "countycode": "D",
+    "towncode": "08"
+  },
+  {
+    "county": "臺南市",
+    "town": "新營區",
+    "countycode": "D",
+    "towncode": "09"
+  },
+  {
+    "county": "臺南市",
+    "town": "鹽水區",
+    "countycode": "D",
+    "towncode": 10
+  },
+  {
+    "county": "臺南市",
+    "town": "柳營區",
+    "countycode": "D",
+    "towncode": 11
+  },
+  {
+    "county": "臺南市",
+    "town": "白河區",
+    "countycode": "D",
+    "towncode": 12
+  },
+  {
+    "county": "臺南市",
+    "town": "後壁區",
+    "countycode": "D",
+    "towncode": 13
+  },
+  {
+    "county": "臺南市",
+    "town": "東山區",
+    "countycode": "D",
+    "towncode": 14
+  },
+  {
+    "county": "臺南市",
+    "town": "麻豆區",
+    "countycode": "D",
+    "towncode": 15
+  },
+  {
+    "county": "臺南市",
+    "town": "下營區",
+    "countycode": "D",
+    "towncode": 16
+  },
+  {
+    "county": "臺南市",
+    "town": "六甲區",
+    "countycode": "D",
+    "towncode": 17
+  },
+  {
+    "county": "臺南市",
+    "town": "官田區",
+    "countycode": "D",
+    "towncode": 18
+  },
+  {
+    "county": "臺南市",
+    "town": "大內區",
+    "countycode": "D",
+    "towncode": 19
+  },
+  {
+    "county": "臺南市",
+    "town": "佳里區",
+    "countycode": "D",
+    "towncode": 20
+  },
+  {
+    "county": "臺南市",
+    "town": "西港區",
+    "countycode": "D",
+    "towncode": 21
+  },
+  {
+    "county": "臺南市",
+    "town": "七股區",
+    "countycode": "D",
+    "towncode": 22
+  },
+  {
+    "county": "臺南市",
+    "town": "將軍區",
+    "countycode": "D",
+    "towncode": 23
+  },
+  {
+    "county": "臺南市",
+    "town": "北門區",
+    "countycode": "D",
+    "towncode": 24
+  },
+  {
+    "county": "臺南市",
+    "town": "學甲區",
+    "countycode": "D",
+    "towncode": 25
+  },
+  {
+    "county": "臺南市",
+    "town": "新化區",
+    "countycode": "D",
+    "towncode": 26
+  },
+  {
+    "county": "臺南市",
+    "town": "善化區",
+    "countycode": "D",
+    "towncode": 27
+  },
+  {
+    "county": "臺南市",
+    "town": "新市區",
+    "countycode": "D",
+    "towncode": 28
+  },
+  {
+    "county": "臺南市",
+    "town": "安定區",
+    "countycode": "D",
+    "towncode": 29
+  },
+  {
+    "county": "臺南市",
+    "town": "山上區",
+    "countycode": "D",
+    "towncode": 30
+  },
+  {
+    "county": "臺南市",
+    "town": "左鎮區",
+    "countycode": "D",
+    "towncode": 31
+  },
+  {
+    "county": "臺南市",
+    "town": "仁德區",
+    "countycode": "D",
+    "towncode": 32
+  },
+  {
+    "county": "臺南市",
+    "town": "歸仁區",
+    "countycode": "D",
+    "towncode": 33
+  },
+  {
+    "county": "臺南市",
+    "town": "關廟區",
+    "countycode": "D",
+    "towncode": 34
+  },
+  {
+    "county": "臺南市",
+    "town": "龍崎區",
+    "countycode": "D",
+    "towncode": 35
+  },
+  {
+    "county": "臺南市",
+    "town": "玉井區",
+    "countycode": "D",
+    "towncode": 36
+  },
+  {
+    "county": "臺南市",
+    "town": "楠西區",
+    "countycode": "D",
+    "towncode": 37
+  },
+  {
+    "county": "臺南市",
+    "town": "南化區",
+    "countycode": "D",
+    "towncode": 38
+  },
+  {
+    "county": "臺南市",
+    "town": "永康區",
+    "countycode": "D",
+    "towncode": 39
+  },
+  {
+    "county": "高雄市",
+    "town": "鹽埕區",
+    "countycode": "E",
+    "towncode": "01"
+  },
+  {
+    "county": "高雄市",
+    "town": "鼓山區",
+    "countycode": "E",
+    "towncode": "02"
+  },
+  {
+    "county": "高雄市",
+    "town": "左營區",
+    "countycode": "E",
+    "towncode": "03"
+  },
+  {
+    "county": "高雄市",
+    "town": "楠梓區",
+    "countycode": "E",
+    "towncode": "04"
+  },
+  {
+    "county": "高雄市",
+    "town": "三民區",
+    "countycode": "E",
+    "towncode": "05"
+  },
+  {
+    "county": "高雄市",
+    "town": "新興區",
+    "countycode": "E",
+    "towncode": "06"
+  },
+  {
+    "county": "高雄市",
+    "town": "前金區",
+    "countycode": "E",
+    "towncode": "07"
+  },
+  {
+    "county": "高雄市",
+    "town": "苓雅區",
+    "countycode": "E",
+    "towncode": "08"
+  },
+  {
+    "county": "高雄市",
+    "town": "前鎮區",
+    "countycode": "E",
+    "towncode": "09"
+  },
+  {
+    "county": "高雄市",
+    "town": "旗津區",
+    "countycode": "E",
+    "towncode": 10
+  },
+  {
+    "county": "高雄市",
+    "town": "小港區",
+    "countycode": "E",
+    "towncode": 11
+  },
+  {
+    "county": "高雄市",
+    "town": "鳳山區",
+    "countycode": "E",
+    "towncode": 12
+  },
+  {
+    "county": "高雄市",
+    "town": "林園區",
+    "countycode": "E",
+    "towncode": 13
+  },
+  {
+    "county": "高雄市",
+    "town": "大寮區",
+    "countycode": "E",
+    "towncode": 14
+  },
+  {
+    "county": "高雄市",
+    "town": "大樹區",
+    "countycode": "E",
+    "towncode": 15
+  },
+  {
+    "county": "高雄市",
+    "town": "大社區",
+    "countycode": "E",
+    "towncode": 16
+  },
+  {
+    "county": "高雄市",
+    "town": "仁武區",
+    "countycode": "E",
+    "towncode": 17
+  },
+  {
+    "county": "高雄市",
+    "town": "鳥松區",
+    "countycode": "E",
+    "towncode": 18
+  },
+  {
+    "county": "高雄市",
+    "town": "岡山區",
+    "countycode": "E",
+    "towncode": 19
+  },
+  {
+    "county": "高雄市",
+    "town": "橋頭區",
+    "countycode": "E",
+    "towncode": 20
+  },
+  {
+    "county": "高雄市",
+    "town": "燕巢區",
+    "countycode": "E",
+    "towncode": 21
+  },
+  {
+    "county": "高雄市",
+    "town": "田寮區",
+    "countycode": "E",
+    "towncode": 22
+  },
+  {
+    "county": "高雄市",
+    "town": "阿蓮區",
+    "countycode": "E",
+    "towncode": 23
+  },
+  {
+    "county": "高雄市",
+    "town": "路竹區",
+    "countycode": "E",
+    "towncode": 24
+  },
+  {
+    "county": "高雄市",
+    "town": "湖內區",
+    "countycode": "E",
+    "towncode": 25
+  },
+  {
+    "county": "高雄市",
+    "town": "茄萣區",
+    "countycode": "E",
+    "towncode": 26
+  },
+  {
+    "county": "高雄市",
+    "town": "永安區",
+    "countycode": "E",
+    "towncode": 27
+  },
+  {
+    "county": "高雄市",
+    "town": "彌陀區",
+    "countycode": "E",
+    "towncode": 28
+  },
+  {
+    "county": "高雄市",
+    "town": "梓官區",
+    "countycode": "E",
+    "towncode": 29
+  },
+  {
+    "county": "高雄市",
+    "town": "旗山區",
+    "countycode": "E",
+    "towncode": 30
+  },
+  {
+    "county": "高雄市",
+    "town": "美濃區",
+    "countycode": "E",
+    "towncode": 31
+  },
+  {
+    "county": "高雄市",
+    "town": "六龜區",
+    "countycode": "E",
+    "towncode": 32
+  },
+  {
+    "county": "高雄市",
+    "town": "甲仙區",
+    "countycode": "E",
+    "towncode": 33
+  },
+  {
+    "county": "高雄市",
+    "town": "杉林區",
+    "countycode": "E",
+    "towncode": 34
+  },
+  {
+    "county": "高雄市",
+    "town": "內門區",
+    "countycode": "E",
+    "towncode": 35
+  },
+  {
+    "county": "高雄市",
+    "town": "茂林區",
+    "countycode": "E",
+    "towncode": 36
+  },
+  {
+    "county": "高雄市",
+    "town": "桃源區",
+    "countycode": "E",
+    "towncode": 37
+  },
+  {
+    "county": "高雄市",
+    "town": "那瑪夏區",
+    "countycode": "E",
+    "towncode": 38
+  },
+  {
+    "county": "新北市",
+    "town": "新莊區",
+    "countycode": "F",
+    "towncode": "01"
+  },
+  {
+    "county": "新北市",
+    "town": "林口區",
+    "countycode": "F",
+    "towncode": "02"
+  },
+  {
+    "county": "新北市",
+    "town": "五股區",
+    "countycode": "F",
+    "towncode": "03"
+  },
+  {
+    "county": "新北市",
+    "town": "蘆洲區",
+    "countycode": "F",
+    "towncode": "04"
+  },
+  {
+    "county": "新北市",
+    "town": "三重區",
+    "countycode": "F",
+    "towncode": "05"
+  },
+  {
+    "county": "新北市",
+    "town": "泰山區",
+    "countycode": "F",
+    "towncode": "06"
+  },
+  {
+    "county": "新北市",
+    "town": "新店區",
+    "countycode": "F",
+    "towncode": "07"
+  },
+  {
+    "county": "新北市",
+    "town": "石碇區",
+    "countycode": "F",
+    "towncode": "08"
+  },
+  {
+    "county": "新北市",
+    "town": "深坑區",
+    "countycode": "F",
+    "towncode": "09"
+  },
+  {
+    "county": "新北市",
+    "town": "坪林區",
+    "countycode": "F",
+    "towncode": 10
+  },
+  {
+    "county": "新北市",
+    "town": "烏來區",
+    "countycode": "F",
+    "towncode": 11
+  },
+  {
+    "county": "新北市",
+    "town": "板橋區",
+    "countycode": "F",
+    "towncode": 14
+  },
+  {
+    "county": "新北市",
+    "town": "三峽區",
+    "countycode": "F",
+    "towncode": 15
+  },
+  {
+    "county": "新北市",
+    "town": "鶯歌區",
+    "countycode": "F",
+    "towncode": 16
+  },
+  {
+    "county": "新北市",
+    "town": "樹林區",
+    "countycode": "F",
+    "towncode": 17
+  },
+  {
+    "county": "新北市",
+    "town": "中和區",
+    "countycode": "F",
+    "towncode": 18
+  },
+  {
+    "county": "新北市",
+    "town": "土城區",
+    "countycode": "F",
+    "towncode": 19
+  },
+  {
+    "county": "新北市",
+    "town": "瑞芳區",
+    "countycode": "F",
+    "towncode": 21
+  },
+  {
+    "county": "新北市",
+    "town": "平溪區",
+    "countycode": "F",
+    "towncode": 22
+  },
+  {
+    "county": "新北市",
+    "town": "雙溪區",
+    "countycode": "F",
+    "towncode": 23
+  },
+  {
+    "county": "新北市",
+    "town": "貢寮區",
+    "countycode": "F",
+    "towncode": 24
+  },
+  {
+    "county": "新北市",
+    "town": "金山區",
+    "countycode": "F",
+    "towncode": 25
+  },
+  {
+    "county": "新北市",
+    "town": "萬里區",
+    "countycode": "F",
+    "towncode": 26
+  },
+  {
+    "county": "新北市",
+    "town": "淡水區",
+    "countycode": "F",
+    "towncode": 27
+  },
+  {
+    "county": "新北市",
+    "town": "汐止區",
+    "countycode": "F",
+    "towncode": 28
+  },
+  {
+    "county": "新北市",
+    "town": "三芝區",
+    "countycode": "F",
+    "towncode": 30
+  },
+  {
+    "county": "新北市",
+    "town": "石門區",
+    "countycode": "F",
+    "towncode": 31
+  },
+  {
+    "county": "新北市",
+    "town": "八里區",
+    "countycode": "F",
+    "towncode": 32
+  },
+  {
+    "county": "新北市",
+    "town": "永和區",
+    "countycode": "F",
+    "towncode": 33
+  },
+  {
+    "county": "宜蘭縣",
+    "town": "宜蘭市",
+    "countycode": "G",
+    "towncode": "01"
+  },
+  {
+    "county": "宜蘭縣",
+    "town": "頭城鎮",
+    "countycode": "G",
+    "towncode": "02"
+  },
+  {
+    "county": "宜蘭縣",
+    "town": "礁溪鄉",
+    "countycode": "G",
+    "towncode": "03"
+  },
+  {
+    "county": "宜蘭縣",
+    "town": "壯圍鄉",
+    "countycode": "G",
+    "towncode": "04"
+  },
+  {
+    "county": "宜蘭縣",
+    "town": "員山鄉",
+    "countycode": "G",
+    "towncode": "05"
+  },
+  {
+    "county": "宜蘭縣",
+    "town": "羅東鎮",
+    "countycode": "G",
+    "towncode": "06"
+  },
+  {
+    "county": "宜蘭縣",
+    "town": "五結鄉",
+    "countycode": "G",
+    "towncode": "07"
+  },
+  {
+    "county": "宜蘭縣",
+    "town": "冬山鄉",
+    "countycode": "G",
+    "towncode": "08"
+  },
+  {
+    "county": "宜蘭縣",
+    "town": "蘇澳鎮",
+    "countycode": "G",
+    "towncode": "09"
+  },
+  {
+    "county": "宜蘭縣",
+    "town": "三星鄉",
+    "countycode": "G",
+    "towncode": 10
+  },
+  {
+    "county": "宜蘭縣",
+    "town": "大同鄉",
+    "countycode": "G",
+    "towncode": 11
+  },
+  {
+    "county": "宜蘭縣",
+    "town": "南澳鄉",
+    "countycode": "G",
+    "towncode": 12
+  },
+  {
+    "county": "桃園市",
+    "town": "桃園區",
+    "countycode": "H",
+    "towncode": "01"
+  },
+  {
+    "county": "桃園市",
+    "town": "大溪區",
+    "countycode": "H",
+    "towncode": "02"
+  },
+  {
+    "county": "桃園市",
+    "town": "中壢區",
+    "countycode": "H",
+    "towncode": "03"
+  },
+  {
+    "county": "桃園市",
+    "town": "楊梅區",
+    "countycode": "H",
+    "towncode": "04"
+  },
+  {
+    "county": "桃園市",
+    "town": "蘆竹區",
+    "countycode": "H",
+    "towncode": "05"
+  },
+  {
+    "county": "桃園市",
+    "town": "大園區",
+    "countycode": "H",
+    "towncode": "06"
+  },
+  {
+    "county": "桃園市",
+    "town": "龜山區",
+    "countycode": "H",
+    "towncode": "07"
+  },
+  {
+    "county": "桃園市",
+    "town": "八德區",
+    "countycode": "H",
+    "towncode": "08"
+  },
+  {
+    "county": "桃園市",
+    "town": "龍潭區",
+    "countycode": "H",
+    "towncode": "09"
+  },
+  {
+    "county": "桃園市",
+    "town": "平鎮區",
+    "countycode": "H",
+    "towncode": 10
+  },
+  {
+    "county": "桃園市",
+    "town": "新屋區",
+    "countycode": "H",
+    "towncode": 11
+  },
+  {
+    "county": "桃園市",
+    "town": "觀音區",
+    "countycode": "H",
+    "towncode": 12
+  },
+  {
+    "county": "桃園市",
+    "town": "復興區",
+    "countycode": "H",
+    "towncode": 13
+  },
+  {
+    "county": "嘉義市",
+    "town": "嘉義市",
+    "countycode": "I",
+    "towncode": "01"
+  },
+  {
+    "county": "新竹縣",
+    "town": "竹東鎮",
+    "countycode": "J",
+    "towncode": "02"
+  },
+  {
+    "county": "新竹縣",
+    "town": "關西鎮",
+    "countycode": "J",
+    "towncode": "03"
+  },
+  {
+    "county": "新竹縣",
+    "town": "新埔鎮",
+    "countycode": "J",
+    "towncode": "04"
+  },
+  {
+    "county": "新竹縣",
+    "town": "竹北市",
+    "countycode": "J",
+    "towncode": "05"
+  },
+  {
+    "county": "新竹縣",
+    "town": "湖口鄉",
+    "countycode": "J",
+    "towncode": "06"
+  },
+  {
+    "county": "新竹縣",
+    "town": "橫山鄉",
+    "countycode": "J",
+    "towncode": "08"
+  },
+  {
+    "county": "新竹縣",
+    "town": "新豐鄉",
+    "countycode": "J",
+    "towncode": "09"
+  },
+  {
+    "county": "新竹縣",
+    "town": "芎林鄉",
+    "countycode": "J",
+    "towncode": 10
+  },
+  {
+    "county": "新竹縣",
+    "town": "寶山鄉",
+    "countycode": "J",
+    "towncode": 11
+  },
+  {
+    "county": "新竹縣",
+    "town": "北埔鄉",
+    "countycode": "J",
+    "towncode": 12
+  },
+  {
+    "county": "新竹縣",
+    "town": "峨眉鄉",
+    "countycode": "J",
+    "towncode": 13
+  },
+  {
+    "county": "新竹縣",
+    "town": "尖石鄉",
+    "countycode": "J",
+    "towncode": 14
+  },
+  {
+    "county": "新竹縣",
+    "town": "五峰鄉",
+    "countycode": "J",
+    "towncode": 15
+  },
+  {
+    "county": "苗栗縣",
+    "town": "苗栗市",
+    "countycode": "K",
+    "towncode": "01"
+  },
+  {
+    "county": "苗栗縣",
+    "town": "苑裡鎮",
+    "countycode": "K",
+    "towncode": "02"
+  },
+  {
+    "county": "苗栗縣",
+    "town": "通霄鎮",
+    "countycode": "K",
+    "towncode": "03"
+  },
+  {
+    "county": "苗栗縣",
+    "town": "公館鄉",
+    "countycode": "K",
+    "towncode": "04"
+  },
+  {
+    "county": "苗栗縣",
+    "town": "銅鑼鄉",
+    "countycode": "K",
+    "towncode": "05"
+  },
+  {
+    "county": "苗栗縣",
+    "town": "三義鄉",
+    "countycode": "K",
+    "towncode": "06"
+  },
+  {
+    "county": "苗栗縣",
+    "town": "西湖鄉",
+    "countycode": "K",
+    "towncode": "07"
+  },
+  {
+    "county": "苗栗縣",
+    "town": "頭屋鄉",
+    "countycode": "K",
+    "towncode": "08"
+  },
+  {
+    "county": "苗栗縣",
+    "town": "竹南鎮",
+    "countycode": "K",
+    "towncode": "09"
+  },
+  {
+    "county": "苗栗縣",
+    "town": "頭份市",
+    "countycode": "K",
+    "towncode": 10
+  },
+  {
+    "county": "苗栗縣",
+    "town": "造橋鄉",
+    "countycode": "K",
+    "towncode": 11
+  },
+  {
+    "county": "苗栗縣",
+    "town": "後龍鎮",
+    "countycode": "K",
+    "towncode": 12
+  },
+  {
+    "county": "苗栗縣",
+    "town": "三灣鄉",
+    "countycode": "K",
+    "towncode": 13
+  },
+  {
+    "county": "苗栗縣",
+    "town": "南庄鄉",
+    "countycode": "K",
+    "towncode": 14
+  },
+  {
+    "county": "苗栗縣",
+    "town": "大湖鄉",
+    "countycode": "K",
+    "towncode": 15
+  },
+  {
+    "county": "苗栗縣",
+    "town": "卓蘭鎮",
+    "countycode": "K",
+    "towncode": 16
+  },
+  {
+    "county": "苗栗縣",
+    "town": "獅潭鄉",
+    "countycode": "K",
+    "towncode": 17
+  },
+  {
+    "county": "苗栗縣",
+    "town": "泰安鄉",
+    "countycode": "K",
+    "towncode": 18
+  },
+  {
+    "county": "南投縣",
+    "town": "南投市",
+    "countycode": "M",
+    "towncode": "01"
+  },
+  {
+    "county": "南投縣",
+    "town": "埔里鎮",
+    "countycode": "M",
+    "towncode": "02"
+  },
+  {
+    "county": "南投縣",
+    "town": "草屯鎮",
+    "countycode": "M",
+    "towncode": "03"
+  },
+  {
+    "county": "南投縣",
+    "town": "竹山鎮",
+    "countycode": "M",
+    "towncode": "04"
+  },
+  {
+    "county": "南投縣",
+    "town": "集集鎮",
+    "countycode": "M",
+    "towncode": "05"
+  },
+  {
+    "county": "南投縣",
+    "town": "名間鄉",
+    "countycode": "M",
+    "towncode": "06"
+  },
+  {
+    "county": "南投縣",
+    "town": "鹿谷鄉",
+    "countycode": "M",
+    "towncode": "07"
+  },
+  {
+    "county": "南投縣",
+    "town": "中寮鄉",
+    "countycode": "M",
+    "towncode": "08"
+  },
+  {
+    "county": "南投縣",
+    "town": "魚池鄉",
+    "countycode": "M",
+    "towncode": "09"
+  },
+  {
+    "county": "南投縣",
+    "town": "國姓鄉",
+    "countycode": "M",
+    "towncode": 10
+  },
+  {
+    "county": "南投縣",
+    "town": "水里鄉",
+    "countycode": "M",
+    "towncode": 11
+  },
+  {
+    "county": "南投縣",
+    "town": "信義鄉",
+    "countycode": "M",
+    "towncode": 12
+  },
+  {
+    "county": "南投縣",
+    "town": "仁愛鄉",
+    "countycode": "M",
+    "towncode": 13
+  },
+  {
+    "county": "彰化縣",
+    "town": "彰化市",
+    "countycode": "N",
+    "towncode": "01"
+  },
+  {
+    "county": "彰化縣",
+    "town": "鹿港鎮",
+    "countycode": "N",
+    "towncode": "02"
+  },
+  {
+    "county": "彰化縣",
+    "town": "和美鎮",
+    "countycode": "N",
+    "towncode": "03"
+  },
+  {
+    "county": "彰化縣",
+    "town": "北斗鎮",
+    "countycode": "N",
+    "towncode": "04"
+  },
+  {
+    "county": "彰化縣",
+    "town": "員林市",
+    "countycode": "N",
+    "towncode": "05"
+  },
+  {
+    "county": "彰化縣",
+    "town": "溪湖鎮",
+    "countycode": "N",
+    "towncode": "06"
+  },
+  {
+    "county": "彰化縣",
+    "town": "田中鎮",
+    "countycode": "N",
+    "towncode": "07"
+  },
+  {
+    "county": "彰化縣",
+    "town": "二林鎮",
+    "countycode": "N",
+    "towncode": "08"
+  },
+  {
+    "county": "彰化縣",
+    "town": "線西鄉",
+    "countycode": "N",
+    "towncode": "09"
+  },
+  {
+    "county": "彰化縣",
+    "town": "伸港鄉",
+    "countycode": "N",
+    "towncode": 10
+  },
+  {
+    "county": "彰化縣",
+    "town": "福興鄉",
+    "countycode": "N",
+    "towncode": 11
+  },
+  {
+    "county": "彰化縣",
+    "town": "秀水鄉",
+    "countycode": "N",
+    "towncode": 12
+  },
+  {
+    "county": "彰化縣",
+    "town": "花壇鄉",
+    "countycode": "N",
+    "towncode": 13
+  },
+  {
+    "county": "彰化縣",
+    "town": "芬園鄉",
+    "countycode": "N",
+    "towncode": 14
+  },
+  {
+    "county": "彰化縣",
+    "town": "大村鄉",
+    "countycode": "N",
+    "towncode": 15
+  },
+  {
+    "county": "彰化縣",
+    "town": "埔鹽鄉",
+    "countycode": "N",
+    "towncode": 16
+  },
+  {
+    "county": "彰化縣",
+    "town": "埔心鄉",
+    "countycode": "N",
+    "towncode": 17
+  },
+  {
+    "county": "彰化縣",
+    "town": "永靖鄉",
+    "countycode": "N",
+    "towncode": 18
+  },
+  {
+    "county": "彰化縣",
+    "town": "社頭鄉",
+    "countycode": "N",
+    "towncode": 19
+  },
+  {
+    "county": "彰化縣",
+    "town": "二水鄉",
+    "countycode": "N",
+    "towncode": 20
+  },
+  {
+    "county": "彰化縣",
+    "town": "田尾鄉",
+    "countycode": "N",
+    "towncode": 21
+  },
+  {
+    "county": "彰化縣",
+    "town": "埤頭鄉",
+    "countycode": "N",
+    "towncode": 22
+  },
+  {
+    "county": "彰化縣",
+    "town": "芳苑鄉",
+    "countycode": "N",
+    "towncode": 23
+  },
+  {
+    "county": "彰化縣",
+    "town": "大城鄉",
+    "countycode": "N",
+    "towncode": 24
+  },
+  {
+    "county": "彰化縣",
+    "town": "竹塘鄉",
+    "countycode": "N",
+    "towncode": 25
+  },
+  {
+    "county": "彰化縣",
+    "town": "溪州鄉",
+    "countycode": "N",
+    "towncode": 26
+  },
+  {
+    "county": "新竹市",
+    "town": "東區",
+    "countycode": "O",
+    "towncode": "01"
+  },
+  {
+    "county": "新竹市",
+    "town": "北區",
+    "countycode": "O",
+    "towncode": "02"
+  },
+  {
+    "county": "新竹市",
+    "town": "香山區",
+    "countycode": "O",
+    "towncode": "01"
+  },
+  {
+    "county": "雲林縣",
+    "town": "斗六市",
+    "countycode": "P",
+    "towncode": "01"
+  },
+  {
+    "county": "雲林縣",
+    "town": "斗南鎮",
+    "countycode": "P",
+    "towncode": "02"
+  },
+  {
+    "county": "雲林縣",
+    "town": "虎尾鎮",
+    "countycode": "P",
+    "towncode": "03"
+  },
+  {
+    "county": "雲林縣",
+    "town": "西螺鎮",
+    "countycode": "P",
+    "towncode": "04"
+  },
+  {
+    "county": "雲林縣",
+    "town": "土庫鎮",
+    "countycode": "P",
+    "towncode": "05"
+  },
+  {
+    "county": "雲林縣",
+    "town": "北港鎮",
+    "countycode": "P",
+    "towncode": "06"
+  },
+  {
+    "county": "雲林縣",
+    "town": "古坑鄉",
+    "countycode": "P",
+    "towncode": "07"
+  },
+  {
+    "county": "雲林縣",
+    "town": "大埤鄉",
+    "countycode": "P",
+    "towncode": "08"
+  },
+  {
+    "county": "雲林縣",
+    "town": "莿桐鄉",
+    "countycode": "P",
+    "towncode": "09"
+  },
+  {
+    "county": "雲林縣",
+    "town": "林內鄉",
+    "countycode": "P",
+    "towncode": 10
+  },
+  {
+    "county": "雲林縣",
+    "town": "二崙鄉",
+    "countycode": "P",
+    "towncode": 11
+  },
+  {
+    "county": "雲林縣",
+    "town": "崙背鄉",
+    "countycode": "P",
+    "towncode": 12
+  },
+  {
+    "county": "雲林縣",
+    "town": "麥寮鄉",
+    "countycode": "P",
+    "towncode": 13
+  },
+  {
+    "county": "雲林縣",
+    "town": "東勢鄉",
+    "countycode": "P",
+    "towncode": 14
+  },
+  {
+    "county": "雲林縣",
+    "town": "褒忠鄉",
+    "countycode": "P",
+    "towncode": 15
+  },
+  {
+    "county": "雲林縣",
+    "town": "台西鄉",
+    "countycode": "P",
+    "towncode": 16
+  },
+  {
+    "county": "雲林縣",
+    "town": "元長鄉",
+    "countycode": "P",
+    "towncode": 17
+  },
+  {
+    "county": "雲林縣",
+    "town": "四湖鄉",
+    "countycode": "P",
+    "towncode": 18
+  },
+  {
+    "county": "雲林縣",
+    "town": "口湖鄉",
+    "countycode": "P",
+    "towncode": 19
+  },
+  {
+    "county": "雲林縣",
+    "town": "水林鄉",
+    "countycode": "P",
+    "towncode": 20
+  },
+  {
+    "county": "嘉義縣",
+    "town": "朴子市",
+    "countycode": "Q",
+    "towncode": "02"
+  },
+  {
+    "county": "嘉義縣",
+    "town": "布袋鎮",
+    "countycode": "Q",
+    "towncode": "03"
+  },
+  {
+    "county": "嘉義縣",
+    "town": "大林鎮",
+    "countycode": "Q",
+    "towncode": "04"
+  },
+  {
+    "county": "嘉義縣",
+    "town": "民雄鄉",
+    "countycode": "Q",
+    "towncode": "05"
+  },
+  {
+    "county": "嘉義縣",
+    "town": "溪口鄉",
+    "countycode": "Q",
+    "towncode": "06"
+  },
+  {
+    "county": "嘉義縣",
+    "town": "新港鄉",
+    "countycode": "Q",
+    "towncode": "07"
+  },
+  {
+    "county": "嘉義縣",
+    "town": "六腳鄉",
+    "countycode": "Q",
+    "towncode": "08"
+  },
+  {
+    "county": "嘉義縣",
+    "town": "東石鄉",
+    "countycode": "Q",
+    "towncode": "09"
+  },
+  {
+    "county": "嘉義縣",
+    "town": "義竹鄉",
+    "countycode": "Q",
+    "towncode": 10
+  },
+  {
+    "county": "嘉義縣",
+    "town": "鹿草鄉",
+    "countycode": "Q",
+    "towncode": 11
+  },
+  {
+    "county": "嘉義縣",
+    "town": "太保市",
+    "countycode": "Q",
+    "towncode": 12
+  },
+  {
+    "county": "嘉義縣",
+    "town": "水上鄉",
+    "countycode": "Q",
+    "towncode": 13
+  },
+  {
+    "county": "嘉義縣",
+    "town": "中埔鄉",
+    "countycode": "Q",
+    "towncode": 14
+  },
+  {
+    "county": "嘉義縣",
+    "town": "竹崎鄉",
+    "countycode": "Q",
+    "towncode": 15
+  },
+  {
+    "county": "嘉義縣",
+    "town": "梅山鄉",
+    "countycode": "Q",
+    "towncode": 16
+  },
+  {
+    "county": "嘉義縣",
+    "town": "番路鄉",
+    "countycode": "Q",
+    "towncode": 17
+  },
+  {
+    "county": "嘉義縣",
+    "town": "大埔鄉",
+    "countycode": "Q",
+    "towncode": 18
+  },
+  {
+    "county": "嘉義縣",
+    "town": "阿里山鄉",
+    "countycode": "Q",
+    "towncode": 20
+  },
+  {
+    "county": "屏東縣",
+    "town": "屏東市",
+    "countycode": "T",
+    "towncode": "01"
+  },
+  {
+    "county": "屏東縣",
+    "town": "潮州鎮",
+    "countycode": "T",
+    "towncode": "02"
+  },
+  {
+    "county": "屏東縣",
+    "town": "東港鎮",
+    "countycode": "T",
+    "towncode": "03"
+  },
+  {
+    "county": "屏東縣",
+    "town": "恆春鎮",
+    "countycode": "T",
+    "towncode": "04"
+  },
+  {
+    "county": "屏東縣",
+    "town": "萬丹鄉",
+    "countycode": "T",
+    "towncode": "05"
+  },
+  {
+    "county": "屏東縣",
+    "town": "長治鄉",
+    "countycode": "T",
+    "towncode": "06"
+  },
+  {
+    "county": "屏東縣",
+    "town": "麟洛鄉",
+    "countycode": "T",
+    "towncode": "07"
+  },
+  {
+    "county": "屏東縣",
+    "town": "九如鄉",
+    "countycode": "T",
+    "towncode": "08"
+  },
+  {
+    "county": "屏東縣",
+    "town": "里港鄉",
+    "countycode": "T",
+    "towncode": "09"
+  },
+  {
+    "county": "屏東縣",
+    "town": "鹽埔鄉",
+    "countycode": "T",
+    "towncode": 10
+  },
+  {
+    "county": "屏東縣",
+    "town": "高樹鄉",
+    "countycode": "T",
+    "towncode": 11
+  },
+  {
+    "county": "屏東縣",
+    "town": "萬巒鄉",
+    "countycode": "T",
+    "towncode": 12
+  },
+  {
+    "county": "屏東縣",
+    "town": "內埔鄉",
+    "countycode": "T",
+    "towncode": 13
+  },
+  {
+    "county": "屏東縣",
+    "town": "竹田鄉",
+    "countycode": "T",
+    "towncode": 14
+  },
+  {
+    "county": "屏東縣",
+    "town": "新埤鄉",
+    "countycode": "T",
+    "towncode": 15
+  },
+  {
+    "county": "屏東縣",
+    "town": "枋寮鄉",
+    "countycode": "T",
+    "towncode": 16
+  },
+  {
+    "county": "屏東縣",
+    "town": "新園鄉",
+    "countycode": "T",
+    "towncode": 17
+  },
+  {
+    "county": "屏東縣",
+    "town": "崁頂鄉",
+    "countycode": "T",
+    "towncode": 18
+  },
+  {
+    "county": "屏東縣",
+    "town": "林邊鄉",
+    "countycode": "T",
+    "towncode": 19
+  },
+  {
+    "county": "屏東縣",
+    "town": "南州鄉",
+    "countycode": "T",
+    "towncode": 20
+  },
+  {
+    "county": "屏東縣",
+    "town": "佳冬鄉",
+    "countycode": "T",
+    "towncode": 21
+  },
+  {
+    "county": "屏東縣",
+    "town": "琉球鄉",
+    "countycode": "T",
+    "towncode": 22
+  },
+  {
+    "county": "屏東縣",
+    "town": "車城鄉",
+    "countycode": "T",
+    "towncode": 23
+  },
+  {
+    "county": "屏東縣",
+    "town": "滿州鄉",
+    "countycode": "T",
+    "towncode": 24
+  },
+  {
+    "county": "屏東縣",
+    "town": "枋山鄉",
+    "countycode": "T",
+    "towncode": 25
+  },
+  {
+    "county": "屏東縣",
+    "town": "三地門鄉",
+    "countycode": "T",
+    "towncode": 26
+  },
+  {
+    "county": "屏東縣",
+    "town": "霧臺鄉",
+    "countycode": "T",
+    "towncode": 27
+  },
+  {
+    "county": "屏東縣",
+    "town": "瑪家鄉",
+    "countycode": "T",
+    "towncode": 28
+  },
+  {
+    "county": "屏東縣",
+    "town": "泰武鄉",
+    "countycode": "T",
+    "towncode": 29
+  },
+  {
+    "county": "屏東縣",
+    "town": "來義鄉",
+    "countycode": "T",
+    "towncode": 30
+  },
+  {
+    "county": "屏東縣",
+    "town": "春日鄉",
+    "countycode": "T",
+    "towncode": 31
+  },
+  {
+    "county": "屏東縣",
+    "town": "獅子鄉",
+    "countycode": "T",
+    "towncode": 32
+  },
+  {
+    "county": "屏東縣",
+    "town": "牡丹鄉",
+    "countycode": "T",
+    "towncode": 33
+  },
+  {
+    "county": "花蓮縣",
+    "town": "花蓮市",
+    "countycode": "U",
+    "towncode": "01"
+  },
+  {
+    "county": "花蓮縣",
+    "town": "光復鄉",
+    "countycode": "U",
+    "towncode": "02"
+  },
+  {
+    "county": "花蓮縣",
+    "town": "玉里鎮",
+    "countycode": "U",
+    "towncode": "03"
+  },
+  {
+    "county": "花蓮縣",
+    "town": "新城鄉",
+    "countycode": "U",
+    "towncode": "04"
+  },
+  {
+    "county": "花蓮縣",
+    "town": "吉安鄉",
+    "countycode": "U",
+    "towncode": "05"
+  },
+  {
+    "county": "花蓮縣",
+    "town": "壽豐鄉",
+    "countycode": "U",
+    "towncode": "06"
+  },
+  {
+    "county": "花蓮縣",
+    "town": "鳳林鎮",
+    "countycode": "U",
+    "towncode": "07"
+  },
+  {
+    "county": "花蓮縣",
+    "town": "豐濱鄉",
+    "countycode": "U",
+    "towncode": "08"
+  },
+  {
+    "county": "花蓮縣",
+    "town": "瑞穗鄉",
+    "countycode": "U",
+    "towncode": "09"
+  },
+  {
+    "county": "花蓮縣",
+    "town": "富里鄉",
+    "countycode": "U",
+    "towncode": 10
+  },
+  {
+    "county": "花蓮縣",
+    "town": "秀林鄉",
+    "countycode": "U",
+    "towncode": 11
+  },
+  {
+    "county": "花蓮縣",
+    "town": "萬榮鄉",
+    "countycode": "U",
+    "towncode": 12
+  },
+  {
+    "county": "花蓮縣",
+    "town": "卓溪鄉",
+    "countycode": "U",
+    "towncode": 13
+  },
+  {
+    "county": "臺東縣",
+    "town": "台東市",
+    "countycode": "V",
+    "towncode": "01"
+  },
+  {
+    "county": "臺東縣",
+    "town": "成功鎮",
+    "countycode": "V",
+    "towncode": "02"
+  },
+  {
+    "county": "臺東縣",
+    "town": "關山鎮",
+    "countycode": "V",
+    "towncode": "03"
+  },
+  {
+    "county": "臺東縣",
+    "town": "卑南鄉",
+    "countycode": "V",
+    "towncode": "04"
+  },
+  {
+    "county": "臺東縣",
+    "town": "大武鄉",
+    "countycode": "V",
+    "towncode": "05"
+  },
+  {
+    "county": "臺東縣",
+    "town": "太麻里鄉",
+    "countycode": "V",
+    "towncode": "06"
+  },
+  {
+    "county": "臺東縣",
+    "town": "東河鄉",
+    "countycode": "V",
+    "towncode": "07"
+  },
+  {
+    "county": "臺東縣",
+    "town": "長濱鄉",
+    "countycode": "V",
+    "towncode": "08"
+  },
+  {
+    "county": "臺東縣",
+    "town": "鹿野鄉",
+    "countycode": "V",
+    "towncode": "09"
+  },
+  {
+    "county": "臺東縣",
+    "town": "池上鄉",
+    "countycode": "V",
+    "towncode": 10
+  },
+  {
+    "county": "臺東縣",
+    "town": "綠島鄉",
+    "countycode": "V",
+    "towncode": 11
+  },
+  {
+    "county": "臺東縣",
+    "town": "延平鄉",
+    "countycode": "V",
+    "towncode": 12
+  },
+  {
+    "county": "臺東縣",
+    "town": "海端鄉",
+    "countycode": "V",
+    "towncode": 13
+  },
+  {
+    "county": "臺東縣",
+    "town": "達仁鄉",
+    "countycode": "V",
+    "towncode": 14
+  },
+  {
+    "county": "臺東縣",
+    "town": "金峰鄉",
+    "countycode": "V",
+    "towncode": 15
+  },
+  {
+    "county": "臺東縣",
+    "town": "蘭嶼鄉",
+    "countycode": "V",
+    "towncode": 16
+  },
+  {
+    "county": "金門縣",
+    "town": "金湖鎮",
+    "countycode": "W",
+    "towncode": "01"
+  },
+  {
+    "county": "金門縣",
+    "town": "金沙鎮",
+    "countycode": "W",
+    "towncode": "02"
+  },
+  {
+    "county": "金門縣",
+    "town": "金城鎮",
+    "countycode": "W",
+    "towncode": "03"
+  },
+  {
+    "county": "金門縣",
+    "town": "金寧鄉",
+    "countycode": "W",
+    "towncode": "04"
+  },
+  {
+    "county": "金門縣",
+    "town": "烈嶼鄉",
+    "countycode": "W",
+    "towncode": "05"
+  },
+  {
+    "county": "金門縣",
+    "town": "烏坵鄉",
+    "countycode": "W",
+    "towncode": "06"
+  },
+  {
+    "county": "澎湖縣",
+    "town": "馬公市",
+    "countycode": "X",
+    "towncode": "01"
+  },
+  {
+    "county": "澎湖縣",
+    "town": "湖西鄉",
+    "countycode": "X",
+    "towncode": "02"
+  },
+  {
+    "county": "澎湖縣",
+    "town": "白沙鄉",
+    "countycode": "X",
+    "towncode": "03"
+  },
+  {
+    "county": "澎湖縣",
+    "town": "西嶼鄉",
+    "countycode": "X",
+    "towncode": "04"
+  },
+  {
+    "county": "澎湖縣",
+    "town": "望安鄉",
+    "countycode": "X",
+    "towncode": "05"
+  },
+  {
+    "county": "澎湖縣",
+    "town": "七美鄉",
+    "countycode": "X",
+    "towncode": "06"
+  },
+  {
+    "county": "連江縣",
+    "town": "南竿鄉",
+    "countycode": "Z",
+    "towncode": "01"
+  },
+  {
+    "county": "連江縣",
+    "town": "北竿鄉",
+    "countycode": "Z",
+    "towncode": "02"
+  },
+  {
+    "county": "連江縣",
+    "town": "莒光鄉",
+    "countycode": "Z",
+    "towncode": "03"
+  },
+  {
+    "county": "連江縣",
+    "town": "東引鄉",
+    "countycode": "Z",
+    "towncode": "04"
+  }
+]</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="CheckLayout" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\CoaCadastre\CheckLayout.pagx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>

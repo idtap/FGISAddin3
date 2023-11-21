@@ -1,0 +1,126 @@
+<UserControl x:Class="FGISAddin3.CoaCadastreDockpaneView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:extensions="clr-namespace:ArcGIS.Desktop.Extensions;assembly=ArcGIS.Desktop.Extensions"
+             mc:Ignorable="d"
+             d:DataContext="{Binding Path=CoaCadastreDockpaneViewModel}"
+             d:DesignHeight="600" d:DesignWidth="300">
+    <UserControl.Resources>
+    </UserControl.Resources>
+    <Grid Margin="0,2,0,-2">
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Cursor" Value="Hand"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="236"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <GroupBox Header="行政區界">
+                <Grid>
+                    <Grid.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                        </Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Style>
+                    </Grid.Resources>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="30"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="縣市"/>
+                    <ComboBox x:Name="cmbCounty" Grid.Column="1" 
+                              DisplayMemberPath="[1]" 
+                              SelectedValuePath="[1]" 
+                              IsEditable="True"
+                              SelectionChanged="cmbCounty_SelectionChangedAsync"></ComboBox>
+                    <TextBlock Grid.Row="1" Text="鄉鎮區"/>
+                    <ComboBox x:Name="cmbTown" Grid.Row="1" Grid.Column="1" 
+                              DisplayMemberPath="[2]"
+                              SelectedValuePath="[2]" 
+                              IsEditable="True"
+                              SelectionChanged="cmbTown_SelectionChangedAsync"></ComboBox>
+                    <TextBlock Grid.Row="2" Text="段別"/>
+                    <ComboBox x:Name="cmbSec" Grid.Row="2" Grid.Column="1" 
+                              DisplayMemberPath="SCNAME"
+                              SelectedValuePath="SCNAME" 
+                              IsEditable="True" 
+                              TextBoxBase.TextChanged="cmbSec_TextChanged"
+                              SelectionChanged="cmbSec_SelectionChangedAsync">
+                    </ComboBox>
+
+                    <Button x:Name="btnLocateCounty" Grid.Column="2" 
+                            ToolTipService.ToolTip="縣市界定位" 
+                            Click="btnLocateCounty_Click">
+                        <Image Source="Images/glocate.png"></Image>
+                    </Button>
+                    <Button x:Name="btnLocateTown" Grid.Row="1" Grid.Column="2" 
+                            ToolTipService.ToolTip="鄉鎮界定位" 
+                            Click="btnLocateTown_Click">
+                        <Image Source="Images/glocate.png"></Image>
+                    </Button>
+                    <Button x:Name="btnLocateSec" Grid.Row="2" Grid.Column="2"  
+                            ToolTipService.ToolTip="段籍界定位" 
+                            Click="btnLocateSec_Click">
+                        <Image Source="Images/glocate.png"></Image>
+                    </Button>
+                </Grid>
+            </GroupBox>
+            <GroupBox Height="90">
+                <Grid>
+                    <Grid.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                        </Style>
+                    </Grid.Resources>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="地號"/>
+                    <TextBox x:Name="txtLandNo" Grid.Column="1" TextChanged="txtLandNo_TextChanged"></TextBox>
+                    <TextBlock Grid.Column="2" Text="子地號" Margin="5,0,5,0"/>
+                    <TextBox x:Name="txtSubNo" Grid.Column="3" TextChanged="txtLandNo_TextChanged"></TextBox>
+                    <TextBlock Grid.Row="1" Text="地籍址"/>
+                    <TextBox x:Name="txtAddress" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" 
+                 Text="{Binding Key,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="0,4,0,24" Grid.RowSpan="2" />
+                    <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Text="(註:將地籍址後的地號去除會找出該段所有地號)" RenderTransformOrigin="1.291,1.311" Width="250" Margin="19,9,19,0" VerticalAlignment="Top"/>
+                </Grid>
+            </GroupBox>
+            <Button Margin="5" 
+                    Command="{Binding CmdSearch}"
+                    Width="268" VerticalAlignment="Top">查詢</Button>
+        </StackPanel>
+        <ListBox x:Name="lstCadastre" 
+                 ItemsSource="{Binding CadastreDatas}" 
+                 MouseDoubleClick="LstCadastre_MouseDoubleClick"
+                 SelectedItem="{Binding SelectedCadastre,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                 DisplayMemberPath="ReturnLandAddress" Margin="10,10,16,240" Grid.Row="1" />
+        <Button Content="清除" 
+                Command="{Binding CmdClear}"
+                Grid.Row="1" VerticalAlignment="Center" Height="20" HorizontalAlignment="Left" Width="274" Margin="10,0,0,0"/>
+        <Button 
+            Command="{Binding CmdLocate}"
+            Content="定位" Margin="10,145,0,0" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="274" Height="20"/>
+    </Grid>
+</UserControl>

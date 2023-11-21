@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="AutoAreaWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CoaCadastreDockpane.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MoiCadastreDockpane.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

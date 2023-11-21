@@ -1,0 +1,38 @@
+﻿[
+   {
+      "ServiceName" : "航遙測分署 WMS",
+      "ServiceType" : "WMS",
+      "ServiceUrl"  : "https://api.asrs.gov.tw/asrs/1/EGbiLfnTR/wms?API_KEY=4QHmTy4T1XdXPBzYqUP9nd2jPx3HKaUGvB6V99RP76bJA8X1L6uxkRA03775b0d4918c464ca48c7f49ddddb7f",
+      "ProxyUrl"    : "",
+      "Token"       : "",
+      "QueryField"  : "",
+      "FieldType"   : "C"
+   },
+   {
+      "ServiceName" : "ArcGIS WMS Sample",
+      "ServiceType" : "WMS",
+      "ServiceUrl"  : "https://nowcoast.noaa.gov/geoserver/observations/weather_radar/wms",
+      "ProxyUrl"    : "",
+      "Token"       : "",
+      "QueryField"  : "",
+      "FieldType"   : "N"
+   },
+   {
+      "ServiceName" : "ArcGIS ImageServer Sample",
+      "ServiceType" : "ImageServer",
+      "ServiceUrl"  : "https://sampleserver6.arcgisonline.com/arcgis/rest/services/NLCDLandCover2001/ImageServer",
+      "ProxyUrl"    : "",
+      "Token"       : "",
+      "QueryField"  : "",
+      "FieldType"   : "N"
+   },
+   {
+      "ServiceName" : "ArcGIS MapServer 全球影像",
+      "ServiceType" : "MapServer",
+      "ServiceUrl"  : "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer",
+      "ProxyUrl"    : "",
+      "Token"       : "",
+      "QueryField"  : "SRC_DATE",
+      "FieldType"   : "N"
+   }
+]

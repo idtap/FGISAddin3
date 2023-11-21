@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="FGISAddin3.MoiCadastreDockpaneView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:extensions="clr-namespace:ArcGIS.Desktop.Extensions;assembly=ArcGIS.Desktop.Extensions"
+             mc:Ignorable="d"
+             d:DataContext="{Binding Path=MoiCadastreDockpaneViewModel}"
+             d:DesignHeight="600" Width="288">
+    <StackPanel HorizontalAlignment="Left" Width="280" Margin="4,4,4,4">
+        <Grid>
+            <Grid.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                </Style>
+                <Style TargetType="Button">
+                    <Setter Property="Cursor" Value="Hand"/>
+                </Style>
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Margin="2,0,0,0" HorizontalAlignment="Left">縣市/鄉鎮</TextBlock>
+            <ComboBox x:Name="cmbCounty" Grid.Column="1" 
+                              DisplayMemberPath="countyname" 
+                              SelectedValuePath="countycode" 
+                              IsEditable="True"
+                              SelectionChanged="cmbCounty_SelectionChangedAsync" 
+                              Width="90" Height="30" Margin="1,5,0,5" HorizontalAlignment="Left">
+            </ComboBox>
+            <TextBlock Grid.Column="1" Width="10" Margin="97,0,0,0" HorizontalAlignment="Left" >/</TextBlock>
+            <ComboBox x:Name="cmbTown" Grid.Row="0" Grid.Column="1" 
+                              DisplayMemberPath="townname"
+                              SelectedValuePath="towncode" 
+                              IsEditable="True"
+                              SelectionChanged="cmbTown_SelectionChangedAsync" 
+                              Width="90" Height="30" Margin="109,5,0,5" HorizontalAlignment="Left">
+            </ComboBox>
+            <TextBlock Grid.Row="1" Margin="2,0,0,0" HorizontalAlignment="Left">段小段</TextBlock>
+            <ComboBox x:Name="cmbSec" Grid.Row="1" Grid.Column="1" 
+                              DisplayMemberPath="sectstr"
+                              SelectedValuePath="sectcode" 
+                              IsEditable="True" 
+                              SelectionChanged="cmbSec_SelectionChangedAsync" 
+                              Margin="0,4,0,6" Height="30" HorizontalAlignment="Left" Width="200"/>
+            <TextBlock Grid.Row="2" HorizontalAlignment="Left" Margin="2,0,0,0">地號</TextBlock>
+            <TextBox x:Name="txtLandNo" Grid.Row="2" Grid.Column="1" 
+                     TextChanged="txtLandNo_TextChanged" 
+                     Height="30" Margin="0,5,0,5" HorizontalAlignment="Left" Width="98" Text="00010000"/>
+        </Grid>
+        <Button x:Name="MoiQueryButton" Content="查詢" 
+                Height="24" Width="52" HorizontalAlignment="Right" Margin="0,10,20,0" 
+                Click="MoiQueryButton_Click" 
+                />
+        <Label Content="查詢結果(註:雙按項目可定位地圖)" Margin="2,10,0,0" HorizontalAlignment="Left"/>
+        <ListBox Height="164" Width="258" Margin="5,5,0,0" 
+                 x:Name="lstMoiCadastre" 
+                 DisplayMemberPath="showStr"
+                 SelectedValuePath="posStr"                 
+                 MouseDoubleClick="LstMoiCadastre_MouseDoubleClick"
+                 HorizontalAlignment="Left" 
+                 />
+        <Button x:Name="MoiLstClearButton" Content="清除查詢結果" 
+            Height="24" Width="93" 
+            Click="MoiLstClearButton_Click" HorizontalAlignment="Right" Margin="0,10,20,0" 
+                />
+    </StackPanel>
+</UserControl>
