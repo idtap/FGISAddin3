@@ -1,8 +1,35 @@
 ﻿[
    {
-      "ServiceName" : "航遙測分署 WMS",
+      "ServiceName" : "航遙測分署-正射影像",
       "ServiceType" : "WMS",
       "ServiceUrl"  : "https://api.asrs.gov.tw/asrs/1/EGbiLfnTR/wms?API_KEY=4QHmTy4T1XdXPBzYqUP9nd2jPx3HKaUGvB6V99RP76bJA8X1L6uxkRA03775b0d4918c464ca48c7f49ddddb7f",
+      "ProxyUrl"    : "",
+      "Token"       : "",
+      "QueryField"  : "",
+      "FieldType"   : "C"
+   },
+   {
+      "ServiceName" : "航遙測分署-正射影像2",
+      "ServiceType" : "WMS",
+      "ServiceUrl"  : "https://api.asrs.gov.tw/asrs/1/2Ky7N1mr7/wms?API_KEY=695G6MAvxuvtqJ5ajvtQ6T3YxgYe6LkkauMUS85Y7o316C2jzmN8vRrcccc26944bdcf09669e5f2432c99b3b1",
+      "ProxyUrl"    : "",
+      "Token"       : "",
+      "QueryField"  : "",
+      "FieldType"   : "C"
+   },
+   {
+      "ServiceName" : "航遙測分署-全台鑲嵌正射影像",
+      "ServiceType" : "WMS",
+      "ServiceUrl"  : "https://api.asrs.gov.tw/asrs/1/2Ky81SV9B/wms?API_KEY=6XgWE8iMxs35bfLzDjr9ncjJkW2EbSNkruhrd4KwMFSmrx2Su7Dr6q2a7288d9e212b199ef3dbb33ebaec5574",
+      "ProxyUrl"    : "",
+      "Token"       : "",
+      "QueryField"  : "",
+      "FieldType"   : "C"
+   },
+   {
+      "ServiceName" : "航遙測分署-福爾摩沙衛星影像",
+      "ServiceType" : "WMS",
+      "ServiceUrl"  : "https://api.asrs.gov.tw/asrs/1/2Ky81SV5P/wms?API_KEY=5FJXxVJZbgQMctSnfhWuNwfo94Aj5giJKCjjRbDekeSd7DLxgoZEvbE1c1d113c2ca6cc4e43d3cd1c5f14eed5",
       "ProxyUrl"    : "",
       "Token"       : "",
       "QueryField"  : "",

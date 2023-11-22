@@ -227,40 +227,60 @@ namespace FGISAddin3
                 WMSLayer layer = null;
                 Map map = MapView.Active.Map;
                 await QueuedTask.Run(() =>
-                {                  
-                    layer = LayerFactory.Instance.CreateLayer<WMSLayer>(layerParams, map);
-                    spatialImageList = layer.GetSpatialReference();
-                    imageLayerName = layer.Name;
-                    // 取下所有子圖層
-                    wmsLayers = layer.Layers[0] as ServiceCompositeSubLayer;
-                    // 單一子層再展開
-                    while( wmsLayers.Layers.Count == 1 ) wmsLayers = wmsLayers.Layers[0] as ServiceCompositeSubLayer;
-                    // 對所有子圖層關閉顯示
-                    for(var ii=0;ii<wmsLayers.Layers.Count;ii++)
-                        wmsLayers.Layers[ii].SetVisibility(false);
+                {
+                    try
+                    {
+                        layer = LayerFactory.Instance.CreateLayer<WMSLayer>(layerParams, map);
+                        if (layer == null)
+                        {
+                            wmsLayers = null;
+                            MessageBox.Show("設定有誤或目前無法連上主機，稍後再試", "通知");
+                        }
+                        else
+                        {
+                            layer.SetVisibility(true);
+                            spatialImageList = layer.GetSpatialReference();
+                            imageLayerName = layer.Name;
+                            // 取下所有子圖層
+                            wmsLayers = layer.Layers[0] as ServiceCompositeSubLayer;
+                            // 單一子層再展開
+                            while (wmsLayers.Layers.Count == 1) wmsLayers = wmsLayers.Layers[0] as ServiceCompositeSubLayer;
+                            // 對所有子圖層關閉顯示
+                            for (var ii = 0; ii < wmsLayers.Layers.Count; ii++)
+                                wmsLayers.Layers[ii].SetVisibility(false);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        wmsLayers = null;
+                        MessageBox.Show("設定有誤或目前無法連上主機，稍後再試", "通知");
+                    }
                 });
                 // 將各筆加到 ListBox
-                var filterFrom = txtFilterFrom.Text.Trim();
-                var filterEnd = txtFilterEnd.Text.Trim();
-                for (var ii = 0; ii < wmsLayers.Layers.Count; ii++)
+                if (wmsLayers != null)
                 {
-                    var showStr = wmsLayers.Layers[ii].Name.ToString();
-                    var bo = true;
-                    if( !filterFrom.Equals("") )
-                        if( string.Compare(showStr,filterFrom)<0 )
-                            bo = false;
-                    if( bo && !filterEnd.Equals("") )
-                        if (string.Compare(showStr, filterEnd)>0)
-                            bo = false;
-                    if (bo)
+                    var filterFrom = txtFilterFrom.Text.Trim();
+                    var filterEnd = txtFilterEnd.Text.Trim();
+                    for (var ii = 0; ii < wmsLayers.Layers.Count; ii++)
                     {
-                        var posStr = "";
-                        ImageListItem lstItem = new ImageListItem
+                        var showStr = wmsLayers.Layers[ii].Name.ToString();
+                        var bo = true;
+                        if (!filterFrom.Equals(""))
+                            if (string.Compare(showStr, filterFrom) < 0)
+                                bo = false;
+                        if (bo && !filterEnd.Equals(""))
+                            if (string.Compare(showStr, filterEnd) > 0)
+                                bo = false;
+                        if (bo)
                         {
-                            showStr = showStr,
-                            posStr = posStr
-                        };
-                        lstImageItems.Add(lstItem);
+                            var posStr = "";
+                            ImageListItem lstItem = new ImageListItem
+                            {
+                                showStr = showStr,
+                                posStr = posStr
+                            };
+                            lstImageItems.Add(lstItem);
+                        }
                     }
                 }
             }

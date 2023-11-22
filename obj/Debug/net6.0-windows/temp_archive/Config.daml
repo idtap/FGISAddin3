@@ -2,7 +2,7 @@
 <ArcGIS defaultAssembly="FGISAddin3.dll" defaultNamespace="FGISAddin3" xmlns="http://schemas.esri.com/DADF/Registry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.esri.com/DADF/Registry file:///C:/Program%20Files/ArcGIS/Pro/bin/ArcGIS.Desktop.Framework.xsd">
   <AddInInfo id="{98f0e9b8-740a-43eb-ba9e-8249112e1ef9}" version="1.0" desktopVersion="3.0.34047">
     <Name>FGISAddin3</Name>
-    <Description>林保署增益集</Description>
+    <Description>林業保育署增益集</Description>
     <Image>Images\AddinDesktop32.png</Image>
     <Author>IDT Team</Author>
     <Company>IDT</Company>
@@ -15,7 +15,7 @@
     <insertModule id="FGISAddin3_Module" className="FGISAddin3Module" autoLoad="false" caption="Module1">
       <!-- uncomment to have the control hosted on a separate tab-->
       <tabs>
-        <tab id="FGISAddin3_Tab1" caption="林保署增益集">
+        <tab id="FGISAddin3_Tab1" caption="林業保育署增益集">
           <group refID="FGISAddin3_Group1"/>
           <group refID="FGISAddin3_Group2"/>
           <group refID="FGISAddin3_Group3"/>
