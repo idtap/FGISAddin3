@@ -111,41 +111,52 @@ namespace FGISAddin3
 
                 // 此種服務影像圖層直接開啟
                 var imageryLayerUrl = serviceItem.ServiceUrl.ToString();
+                Layer layer = null;
                 await QueuedTask.Run(() =>
                 {
-                    Map map = MapView.Active.Map;   
-                    Layer layer = LayerFactory.Instance.CreateLayer(new Uri(imageryLayerUrl),map);                                                
-                    spatialImageList = layer.GetSpatialReference();
-                    imageLayerName = layer.Name;
+                    Map map = MapView.Active.Map;
+                    try
+                    {
+                        layer = LayerFactory.Instance.CreateLayer(new Uri(imageryLayerUrl), map);
+                        spatialImageList = layer.GetSpatialReference();
+                        imageLayerName = layer.Name;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("設定有誤或目前無法連上主機，稍後再試", "通知");
+                    }
                 });
 
                 // 再開始查詢
-                var quote = "";
-                if( serviceItem.FieldType.ToString().Equals("C") )
-                    quote = "'";
-
-                var listResult = ImageQuery_ImageServer(imageryLayerUrl+"/query", quote);
-
-                // 將資料加到 listbox, 準備點選定位
-                foreach(myFeature feature in  listResult)
+                if (layer != null)
                 {
-                    var showStr = "OBJECTID:" + feature.attributes.OBJECTID.ToString();
-                    var posStr = "";
-                    
-                    foreach(var pos in feature.geometry.rings[0])
+                    var quote = "";
+                    if (serviceItem.FieldType.ToString().Equals("C"))
+                        quote = "'";
+
+                    var listResult = ImageQuery_ImageServer(imageryLayerUrl + "/query", quote);
+
+                    // 將資料加到 listbox, 準備點選定位
+                    foreach (myFeature feature in listResult)
                     {
-                        if( !posStr.Equals(""))
-                            posStr += ";";
-                        posStr += pos[0].ToString() + "," + pos[1].ToString();
+                        var showStr = "OBJECTID:" + feature.attributes.OBJECTID.ToString();
+                        var posStr = "";
+
+                        foreach (var pos in feature.geometry.rings[0])
+                        {
+                            if (!posStr.Equals(""))
+                                posStr += ";";
+                            posStr += pos[0].ToString() + "," + pos[1].ToString();
+                        }
+
+                        ImageListItem lstItem = new ImageListItem
+                        {
+                            showStr = showStr,
+                            posStr = posStr
+                        };
+
+                        lstImageItems.Add(lstItem);
                     }
-
-                    ImageListItem lstItem = new ImageListItem
-                    {
-                        showStr = showStr,
-                        posStr = posStr
-                    };
-
-                    lstImageItems.Add(lstItem);
                 }
             }
             else if( imageType.Equals("MapServer") )
@@ -155,56 +166,67 @@ namespace FGISAddin3
 
                 // 此種服務影像圖層亦是直接開啟
                 var imageryLayerUrl = serviceItem.ServiceUrl.ToString();
+                Layer layer = null;
                 await QueuedTask.Run(() =>
                 {
-                    Map map = MapView.Active.Map;                
-                    Layer layer = LayerFactory.Instance.CreateLayer(new Uri(imageryLayerUrl),map);
-                    spatialImageList = layer.GetSpatialReference();
-                    imageLayerName = layer.Name;
+                    Map map = MapView.Active.Map;
+                    try
+                    {
+                        layer = LayerFactory.Instance.CreateLayer(new Uri(imageryLayerUrl), map);
+                        spatialImageList = layer.GetSpatialReference();
+                        imageLayerName = layer.Name;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("設定有誤或目前無法連上主機，稍後再試", "通知");
+                    }
                 });
 
                 // 再開始查詢
-                var quote = "";
-                if( serviceItem.FieldType.ToString().Equals("C") )
-                    quote = "'";
-
-                var listResult = await ImageQuery_MapServer(serviceItem.QueryField.ToString().Trim(), 
-                    imageryLayerUrl, quote);
-
-                // 將資料加到 listbox, 準備點選定位
-                foreach (Feature feature in listResult)
+                if (layer != null)
                 {
-                    // 組合條列名
-                    var showStr = "";
-                    ArcGIS.Core.Geometry.Polygon polygon = null;
-                    await QueuedTask.Run(() =>
-                    {
-                        showStr = "OBJECTID:"+feature.GetOriginalValue(0).ToString() +
-                                  "," + serviceItem.QueryField.ToString() + ":" + feature.GetOriginalValue(1).ToString();
-                        polygon = feature.GetShape() as ArcGIS.Core.Geometry.Polygon;
-                    });
-                    // 組合點位
-                    var posStr = "";
-                    // 圖資座標系要轉為地圖座標
-                    var polygon_map = GeometryEngine.Instance.Project(polygon, MapView.Active.Map.SpatialReference) as ArcGIS.Core.Geometry.Polygon;
-                    var polygon_outer = Utility.GetOutermostRings(polygon_map);
-                    if (polygon_outer != null)
-                    {
-                        var vertices = polygon_outer.Points;
-                        foreach (var pos in vertices)
-                        {
-                            if (!posStr.Equals(""))
-                                posStr += ";";
-                            posStr += pos.X.ToString() + "," + pos.Y.ToString();
-                        }
-                    }
-                    ImageListItem lstItem = new ImageListItem
-                    {
-                        showStr = showStr,
-                        posStr = posStr
-                    };
+                    var quote = "";
+                    if (serviceItem.FieldType.ToString().Equals("C"))
+                        quote = "'";
 
-                    lstImageItems.Add(lstItem);
+                    var listResult = await ImageQuery_MapServer(serviceItem.QueryField.ToString().Trim(),
+                        imageryLayerUrl, quote);
+
+                    // 將資料加到 listbox, 準備點選定位
+                    foreach (Feature feature in listResult)
+                    {
+                        // 組合條列名
+                        var showStr = "";
+                        ArcGIS.Core.Geometry.Polygon polygon = null;
+                        await QueuedTask.Run(() =>
+                        {
+                            showStr = "OBJECTID:" + feature.GetOriginalValue(0).ToString() +
+                                      "," + serviceItem.QueryField.ToString() + ":" + feature.GetOriginalValue(1).ToString();
+                            polygon = feature.GetShape() as ArcGIS.Core.Geometry.Polygon;
+                        });
+                        // 組合點位
+                        var posStr = "";
+                        // 圖資座標系要轉為地圖座標
+                        var polygon_map = GeometryEngine.Instance.Project(polygon, MapView.Active.Map.SpatialReference) as ArcGIS.Core.Geometry.Polygon;
+                        var polygon_outer = Utility.GetOutermostRings(polygon_map);
+                        if (polygon_outer != null)
+                        {
+                            var vertices = polygon_outer.Points;
+                            foreach (var pos in vertices)
+                            {
+                                if (!posStr.Equals(""))
+                                    posStr += ";";
+                                posStr += pos.X.ToString() + "," + pos.Y.ToString();
+                            }
+                        }
+                        ImageListItem lstItem = new ImageListItem
+                        {
+                            showStr = showStr,
+                            posStr = posStr
+                        };
+
+                        lstImageItems.Add(lstItem);
+                    }
                 }
             }
             else if( imageType.Equals("WMS") )
