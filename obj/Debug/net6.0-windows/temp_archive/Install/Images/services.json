@@ -9,15 +9,6 @@
       "FieldType"   : "C"
    },
    {
-      "ServiceName" : "航遙測分署-正射影像2",
-      "ServiceType" : "WMS",
-      "ServiceUrl"  : "https://api.asrs.gov.tw/asrs/1/2Ky7N1mr7/wms?API_KEY=695G6MAvxuvtqJ5ajvtQ6T3YxgYe6LkkauMUS85Y7o316C2jzmN8vRrcccc26944bdcf09669e5f2432c99b3b1",
-      "ProxyUrl"    : "",
-      "Token"       : "",
-      "QueryField"  : "",
-      "FieldType"   : "C"
-   },
-   {
       "ServiceName" : "航遙測分署-全台鑲嵌正射影像",
       "ServiceType" : "WMS",
       "ServiceUrl"  : "https://api.asrs.gov.tw/asrs/1/2Ky81SV9B/wms?API_KEY=6XgWE8iMxs35bfLzDjr9ncjJkW2EbSNkruhrd4KwMFSmrx2Su7Dr6q2a7288d9e212b199ef3dbb33ebaec5574",
@@ -42,7 +33,7 @@
       "ProxyUrl"    : "",
       "Token"       : "",
       "QueryField"  : "",
-      "FieldType"   : "N"
+      "FieldType"   : "C"
    },
    {
       "ServiceName" : "ArcGIS ImageServer Sample",
