@@ -281,7 +281,7 @@ namespace FGISAddin3
     }
 
     public class MoiCadastreItem
-{
+    {
         public string showStr { get; set; }
         public string posStr { get; set; }
     }
