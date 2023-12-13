@@ -1,4 +1,9 @@
+using ArcGIS.Core.CIM;
 using ArcGIS.Core.Data;
+using ArcGIS.Core.Data.DDL;
+using ArcGIS.Core.Data.UtilityNetwork.Trace;
+using ArcGIS.Desktop.Core;
+using ArcGIS.Desktop.Core.Geoprocessing;
 using ArcGIS.Desktop.Framework.Threading.Tasks;
 using ArcGIS.Desktop.Mapping;
 using FGISAddin3.CoaCadastre;
@@ -178,8 +183,115 @@ namespace FGISAddin3
         {
             if (lstCadastre.SelectedItem == null) return;
             (this.DataContext as CoaCadastreDockpaneViewModel).Locate();
-        }        
-        
+        }
+
+        // 查詢整段地籍
+        private async void btnQueryBySec_Click(object sender, RoutedEventArgs e)
+        {          
+            if( SecAddress.Length<=0 )
+            {
+                MessageBox.Show("尚未選取行政區");
+                return;
+            }
+            var data = await APISource.GetCadastres(SecAddress);           
+            if (data == null || data.Length==0)
+            {
+                MessageBox.Show("地籍查詢伺服器無回應或找不到任何資料");
+                return;
+            }
+            // 只取首筆前六碼準備開啟圖層
+            var sec_code = data[0].Return14SecNo.Substring(0, 6);
+            MessageBox.Show("系統將以圖層方式加上段號["+sec_code+"]條件開啟，按鍵繼續");
+
+            var layerUrl = "https://coagis.colife.org.tw/arcgis/rest/services/CadastralMap/CadastralMap_Tiled_"+APISource._version+"/MapServer/1";
+            Map map = MapView.Active.Map;
+            var name = SecAddress;
+                       　
+            CIMInternetServerConnection serverConnection = null;
+            await QueuedTask.Run(() =>
+            {
+                serverConnection = new CIMInternetServerConnection()
+                {
+                    Anonymous = true,
+                    HideUserProperty = true,
+                    URL = "https://coagis.colife.org.tw/arcgis/manager",
+                    User = "User_CadastralMap",
+                    Password = "User_CadastralMap2017coa"
+                };
+            });
+
+            CIMAGSServiceConnection connection = null;
+            await QueuedTask.Run(() =>
+            {
+                connection = new CIMAGSServiceConnection()
+                {
+                    ObjectName = "CadastralMap/CadastralMap_Tiled_" + APISource._version + "/MapServer/1",
+                    ObjectType = "MapServer",
+                    URL = layerUrl,
+                    ServerConnection = serverConnection
+                };
+            });
+
+            var whereCause = "段號 like '%" + sec_code + "%'";
+            //var flyrCreatnParam = new FeatureLayerCreationParams(new Uri(layerUrl))
+            FeatureLayerCreationParams flyrCreatnParam = null;
+            await QueuedTask.Run(() =>
+            {
+                flyrCreatnParam = new FeatureLayerCreationParams(connection)
+                {
+                    Name = name,
+                    IsVisible = true,
+                    MinimumScale = 1000000,
+                    MaximumScale = 100,
+                    DefinitionQuery = new DefinitionQuery(
+                        whereClause: whereCause, name: name)
+                    //RendererDefinition = new SimpleRendererDefinition()
+                    //{
+                        //SymbolTemplate = SymbolFactory.Instance.ConstructPointSymbol(
+                        //    CIMColor.CreateRGBColor(255, 0, 0), 8, SimpleMarkerStyle.Hexagon).MakeSymbolReference()                        
+                    //}
+                };
+            });
+            FeatureLayer featureLayer = null;
+            var bo = true;
+            await QueuedTask.Run(() =>
+            {
+                try
+                {
+                    featureLayer = LayerFactory.Instance.CreateLayer<FeatureLayer>(
+                        flyrCreatnParam, map);
+                }
+                catch (Exception ex)
+                {                    
+                    MessageBox.Show("自動登入服務失敗需手動登入（請於登入畫面勾選保留登入資訊）\n按鍵後開始作業","說明");
+                    bo = false;                    
+                }
+            });
+            if( !bo )
+            {
+                await QueuedTask.Run(() =>
+                {
+                    ArcGISPortalManager.Current.AddPortal(new Uri(layerUrl));
+                    var portal = ArcGISPortalManager.Current.GetActivePortal();
+                    if (portal != null && portal.SignIn().success)
+                    {
+                        MessageBox.Show("手動登入成功，按鍵後請再次查詢", "通知");
+                    }
+                    else
+                    {
+                        MessageBox.Show("手動登入仍失敗，請查明原因後再試", "通知");
+                    }
+                });
+                return;
+            }
+            var secData = cmbSec.SelectedItem as SecData;
+            await QueuedTask.Run(async () =>
+            {
+                var res = await APISource.GetSec(secData.OBJECTID);
+                MapView.Active.ZoomTo(res.GetShape());
+            });
+            MessageBox.Show("完成，可於[Map]下查看此圖層明細","通知");
+        }
     }
 
     public class FeatureToValueConverter : IValueConverter

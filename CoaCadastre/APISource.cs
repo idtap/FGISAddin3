@@ -16,18 +16,20 @@ namespace FGISAddin3.CoaCadastre
     {
         private const string _ApiRoot = "https://coagis.colife.org.tw/arcgis/";
         private static Token Token = null;
+        public static string _version = "106Q4";
 
         public static async Task<IEnumerable<Feature>> GetCounties()
         {
-            return await Utility.GetFeatures(string.Format("{0}rest/services/CadastralMapUtil/Util/MapServer",
-                _ApiRoot), "1", "1=1", "OBJECTID,CountyName");
+            return await Utility.GetFeatures(
+                string.Format("{0}rest/services/CadastralMapUtil/Util/MapServer",_ApiRoot), 
+                "1", "1=1", "OBJECTID,CountyName");
         }
 
         public static async Task<Feature> GetCounty(long oid)
         {
             var res = await Utility.GetFeature(new List<long> { oid },
-                string.Format("{0}rest/services/CadastralMapUtil/Util/MapServer",
-                _ApiRoot), "1");
+                string.Format("{0}rest/services/CadastralMapUtil/Util/MapServer",_ApiRoot), 
+                "1");
             return res.FirstOrDefault();
         }
 
@@ -52,9 +54,11 @@ namespace FGISAddin3.CoaCadastre
 
                 var codes = JsonConvert.DeserializeObject<AdminCode[]>(Properties.Resources.AdminCode);
                 var code = codes.FirstOrDefault(x => x.county == county && x.town == town);
-                return await Utility.GetFeatures(string.Format("{0}rest/services/Section/Section_106Q4/MapServer",
-                    _ApiRoot), (ctys.Contains(county) ? "0" : "1"), string.Format("CTY='{0}' and TOWN='{1}'", code.countycode, code.towncode),
-                    (ctys.Contains(county) ? "OBJECTID,SCNAME,SCNO,SCNOEXT,CTY,TOWN" : "OBJECTID_1,SCNAME,SCNO,SCNOEXT,CTY,TOWN"));
+
+                return await Utility.GetFeatures(
+                string.Format("{0}rest/services/Section/Section_106Q4/MapServer", _ApiRoot), 
+                (ctys.Contains(county) ? "0" : "1"), string.Format("CTY='{0}' and TOWN='{1}'", code.countycode, code.towncode),
+                (ctys.Contains(county) ? "OBJECTID,SCNAME,SCNO,SCNOEXT,CTY,TOWN" : "OBJECTID_1,SCNAME,SCNO,SCNOEXT,CTY,TOWN"));
             }
             catch (Exception)
             {
@@ -81,14 +85,15 @@ namespace FGISAddin3.CoaCadastre
                 var Info = new Dictionary<string, string>();
                 Info.Add("token", Token?.token);
                 Info.Add("LandAddress", LandAddress);
-                Info.Add("LandVersion", "106Q4");
-                Info.Add("CodeVersion", "106Q4");
+                Info.Add("LandVersion", _version);
+                Info.Add("CodeVersion", _version);                
                 Info.Add("SpatialRefZone", ctys.Contains(LandAddress.Substring(0, 3)) ? "外島" : "本島");
                 Info.Add("SpatialRefOutput", ctys.Contains(LandAddress.Substring(0, 3)) ? "3825" : "3826");
                 Info.Add("f", "json");
 
                 var content = new FormUrlEncodedContent(Info);
-                using (var response = await client.PostAsync("rest/services/CadastralMap/SOE/MapServer/exts/CoaRESTSOE/LandAddressToLocation", content))
+                using (var response = await client.PostAsync(
+                   "rest/services/CadastralMap/SOE/MapServer/exts/CoaRESTSOE/LandAddressToLocation", content))
                 {
                     if (response.IsSuccessStatusCode)
                     {
@@ -103,7 +108,7 @@ namespace FGISAddin3.CoaCadastre
             }
         }
 
-        private static async Task<Token> GetTokenAsync()
+        public static async Task<Token> GetTokenAsync()
         {
             var ip = await GetIP();
             using (var client = new HttpClient() { BaseAddress = new Uri(_ApiRoot) })

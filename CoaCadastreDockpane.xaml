@@ -10,7 +10,7 @@
     <UserControl.Resources>
     </UserControl.Resources>
     <StackPanel Margin="4,4,4,4">
-        <Grid Margin="0,2,0,-2">
+        <Grid Margin="0,2,0,-2" Height="543">
             <Grid.Resources>
                 <Style TargetType="Button">
                     <Setter Property="Cursor" Value="Hand"/>
@@ -19,7 +19,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" MinHeight="236"/>
                 <RowDefinition/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" MinHeight="0"/>
             </Grid.RowDefinitions>
             <StackPanel>
                 <GroupBox Header="行政區界">
@@ -80,6 +80,9 @@
                         </Button>
                     </Grid>
                 </GroupBox>
+                <GroupBox Height="40">
+                    <Button x:Name="btnQueryBySec" Content="查詢整段地籍" HorizontalAlignment="Center" Width="264" Height="22" VerticalAlignment="Center" Click="btnQueryBySec_Click"/>
+                </GroupBox>
                 <GroupBox Height="90">
                     <Grid>
                         <Grid.Resources>
@@ -110,19 +113,19 @@
                 </GroupBox>
                 <Button Margin="5" 
                     Command="{Binding CmdSearch}"
-                    Width="268" VerticalAlignment="Top">查詢</Button>
+                    Width="268" VerticalAlignment="Top" Height="20">查詢</Button>
             </StackPanel>
             <ListBox x:Name="lstCadastre" 
                  ItemsSource="{Binding CadastreDatas}" 
                  MouseDoubleClick="LstCadastre_MouseDoubleClick"
                  SelectedItem="{Binding SelectedCadastre,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                 DisplayMemberPath="ReturnLandAddress" Margin="10,10,16,92" Grid.Row="1" />
-            <Button Content="清除" 
-                Command="{Binding CmdClear}"
-                Grid.Row="1" Height="20" Width="274" Margin="0,234,0,0" Cursor="Hand" Grid.RowSpan="2"/>
+                 DisplayMemberPath="ReturnLandAddress" Margin="10,11,16,93" Grid.Row="1" />
             <Button 
             Command="{Binding CmdLocate}"
-            Content="定位" Margin="0,189,0,0" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Width="274" Height="20"/>
+            Content="定位" Margin="0,195,0,0" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Width="274" Height="20"/>
+            <Button Content="清除" 
+            Command="{Binding CmdClear}"
+            Grid.Row="1" Margin="0,230,0,0" Cursor="Hand" Height="20" Width="275" VerticalAlignment="Top" HorizontalAlignment="Center"/>
         </Grid>
     </StackPanel>
 </UserControl>
