@@ -259,7 +259,7 @@ namespace FGISAddin3
                 try
                 {
                     featureLayer = LayerFactory.Instance.CreateLayer<FeatureLayer>(
-                        flyrCreatnParam, map);
+                        flyrCreatnParam, map);                                                        
                 }
                 catch (Exception ex)
                 {                    
@@ -271,7 +271,13 @@ namespace FGISAddin3
             {
                 await QueuedTask.Run(() =>
                 {
-                    ArcGISPortalManager.Current.AddPortal(new Uri(layerUrl));
+                    try
+                    {
+                        ArcGISPortalManager.Current.AddPortal(new Uri(layerUrl));
+                    }
+                    catch (Exception ex)
+                    {
+                    }
                     var portal = ArcGISPortalManager.Current.GetActivePortal();
                     if (portal != null && portal.SignIn().success)
                     {
