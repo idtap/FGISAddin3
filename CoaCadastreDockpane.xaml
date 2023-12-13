@@ -10,7 +10,7 @@
     <UserControl.Resources>
     </UserControl.Resources>
     <StackPanel Margin="4,4,4,4">
-        <Grid Margin="0,2,0,-2" Height="543">
+        <Grid Margin="0,2,0,-2" Height="508">
             <Grid.Resources>
                 <Style TargetType="Button">
                     <Setter Property="Cursor" Value="Hand"/>
@@ -122,10 +122,11 @@
                  DisplayMemberPath="ReturnLandAddress" Margin="10,11,16,93" Grid.Row="1" />
             <Button 
             Command="{Binding CmdLocate}"
-            Content="定位" Margin="0,195,0,0" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Width="274" Height="20"/>
+            Content="定位" Margin="0,170,0,0" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Width="274" Height="20"/>
             <Button Content="清除" 
             Command="{Binding CmdClear}"
-            Grid.Row="1" Margin="0,230,0,0" Cursor="Hand" Height="20" Width="275" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            Grid.Row="1" Margin="0,202,0,0" Cursor="Hand" Height="20" Width="276" VerticalAlignment="Top" HorizontalAlignment="Center"/>
         </Grid>
+        <Button x:Name="btnChangeToken" Content="變更 Token" HorizontalAlignment="Center" Width="274" VerticalAlignment="Top" Margin="0,10,0,0" Height="22" Click="btnChangeToken_Click"/>
     </StackPanel>
 </UserControl>

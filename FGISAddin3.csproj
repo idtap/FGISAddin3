@@ -9,6 +9,7 @@
     <NoWarn>1591;CA1416</NoWarn>
     <UseWPF>true</UseWPF>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Cadastre\**" />
@@ -123,6 +124,9 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
   <ItemGroup>
+    <None Update="Images\coaToken.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Images\services.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

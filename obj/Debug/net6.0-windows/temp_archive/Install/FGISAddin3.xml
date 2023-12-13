@@ -55,6 +55,16 @@
             InitializeComponent
             </summary>
         </member>
+        <member name="T:FGISAddin3.InputTokenWindow">
+            <summary>
+            InputTokenWindow
+            </summary>
+        </member>
+        <member name="M:FGISAddin3.InputTokenWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
         <member name="T:FGISAddin3.MoiCadastreDockpaneView">
             <summary>
             MoiCadastreDockpaneView

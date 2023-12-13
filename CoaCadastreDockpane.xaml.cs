@@ -26,6 +26,7 @@ namespace FGISAddin3
         public CoaCadastreDockpaneView()
         {
             InitializeComponent();
+            InputTokenWindow.LoadCoaToken();
             // 啟動時先預載縣市
             if (!DesignerProperties.GetIsInDesignMode(this))
                 this.Loaded += CtrSec_LoadedAsync;
@@ -206,7 +207,7 @@ namespace FGISAddin3
             var layerUrl = "https://coagis.colife.org.tw/arcgis/rest/services/CadastralMap/CadastralMap_Tiled_"+APISource._version+"/MapServer/1";
             Map map = MapView.Active.Map;
             var name = SecAddress;
-                       　
+
             CIMInternetServerConnection serverConnection = null;
             await QueuedTask.Run(() =>
             {
@@ -214,19 +215,24 @@ namespace FGISAddin3
                 {
                     Anonymous = true,
                     HideUserProperty = true,
-                    URL = "https://coagis.colife.org.tw/arcgis/manager",
-                    User = "User_CadastralMap",
-                    Password = "User_CadastralMap2017coa"
+                    URL = "https://coagis.colife.org.tw/arcgis/rest/services"                    
+                    //User = "User_CadastralMap",
+                    //Password = "User_CadastralMap2017coa"
                 };
             });
 
             CIMAGSServiceConnection connection = null;
             await QueuedTask.Run(() =>
             {
+                var param = new CIMStringMap { 
+                    Key = "token", 
+                    Value = InputTokenWindow.coaToken 
+                };
                 connection = new CIMAGSServiceConnection()
                 {
                     ObjectName = "CadastralMap/CadastralMap_Tiled_" + APISource._version + "/MapServer/1",
                     ObjectType = "MapServer",
+                    CustomParameters = [param],
                     URL = layerUrl,
                     ServerConnection = serverConnection
                 };
@@ -263,40 +269,28 @@ namespace FGISAddin3
                 }
                 catch (Exception ex)
                 {                    
-                    MessageBox.Show("自動登入服務失敗需手動登入（請於登入畫面勾選保留登入資訊）\n按鍵後開始作業","說明");
+                    MessageBox.Show("加入地籍服務圖層失敗，可能 token 失效","錯誤");
                     bo = false;                    
                 }
             });
-            if( !bo )
+            if (bo)
             {
-                await QueuedTask.Run(() =>
+                var secData = cmbSec.SelectedItem as SecData;
+                await QueuedTask.Run(async () =>
                 {
-                    try
-                    {
-                        ArcGISPortalManager.Current.AddPortal(new Uri(layerUrl));
-                    }
-                    catch (Exception ex)
-                    {
-                    }
-                    var portal = ArcGISPortalManager.Current.GetActivePortal();
-                    if (portal != null && portal.SignIn().success)
-                    {
-                        MessageBox.Show("手動登入成功，按鍵後請再次查詢", "通知");
-                    }
-                    else
-                    {
-                        MessageBox.Show("手動登入仍失敗，請查明原因後再試", "通知");
-                    }
+                    var res = await APISource.GetSec(secData.OBJECTID);
+                    MapView.Active.ZoomTo(res.GetShape());
                 });
-                return;
+                MessageBox.Show("完成，可於[Map]下查看此圖層明細", "通知");
             }
-            var secData = cmbSec.SelectedItem as SecData;
-            await QueuedTask.Run(async () =>
-            {
-                var res = await APISource.GetSec(secData.OBJECTID);
-                MapView.Active.ZoomTo(res.GetShape());
-            });
-            MessageBox.Show("完成，可於[Map]下查看此圖層明細","通知");
+        }
+
+        // 變更 Token
+        private void btnChangeToken_Click(object sender, RoutedEventArgs e)
+        {
+            InputTokenWindow dialog = new InputTokenWindow();
+            bool? result = dialog.ShowDialog();
+            //if (result == true) {}
         }
     }
 

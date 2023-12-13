@@ -28,3 +28,6 @@ D:\保育署\repos\FGISAddin3\obj\Debug\net6.0-windows\refint\FGISAddin3.dll
 D:\保育署\repos\FGISAddin3\obj\Debug\net6.0-windows\FGISAddin3.xml
 D:\保育署\repos\FGISAddin3\obj\Debug\net6.0-windows\FGISAddin3.pdb
 D:\保育署\repos\FGISAddin3\obj\Debug\net6.0-windows\ref\FGISAddin3.dll
+D:\保育署\repos\FGISAddin3\obj\Debug\net6.0-windows\InputTokenWindow.baml
+D:\保育署\repos\FGISAddin3\obj\Debug\net6.0-windows\InputTokenWindow.g.cs
+D:\保育署\repos\FGISAddin3\bin\Debug\net6.0-windows\Images\coaToken.json
