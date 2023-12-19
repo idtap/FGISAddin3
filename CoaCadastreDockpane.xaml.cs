@@ -238,7 +238,7 @@ namespace FGISAddin3
                 };
             });
 
-            var whereCause = "段號 like '%" + sec_code + "%'";
+            var whereCause = "段號 like '" + sec_code + "%'";
             //var flyrCreatnParam = new FeatureLayerCreationParams(new Uri(layerUrl))
             FeatureLayerCreationParams flyrCreatnParam = null;
             await QueuedTask.Run(() =>
