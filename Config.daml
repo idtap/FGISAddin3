@@ -30,8 +30,8 @@
           <button refID="FGISAddin3_CoaCadastreDockpane_ShowButton" size="large" />
         </group>
         <group id="FGISAddin3_Group3" caption="影像查詢模組" appearsOnAddInTab="false" keytip="G3">
-          <button refID="FGISAddin3_ImageMapSetting" size="large" />
           <button refID="FGISAddin3_ImageMapQuery"   size="large" />
+          <button refID="FGISAddin3_ImageMapSetting" size="large" />
         </group>
       </groups>
       <controls>

@@ -9,11 +9,20 @@
     ".NETCoreApp,Version=v6.0/win10-x64": {
       "FGISAddin3/1.0.0": {
         "dependencies": {
+          "InputSimulator": "1.0.4",
           "Json.Net": "1.0.33",
           "Newtonsoft.Json": "13.0.3"
         },
         "runtime": {
           "FGISAddin3.dll": {}
+        }
+      },
+      "InputSimulator/1.0.4": {
+        "runtime": {
+          "lib/net20/WindowsInput.dll": {
+            "assemblyVersion": "1.0.4.0",
+            "fileVersion": "1.0.4.0"
+          }
         }
       },
       "Json.Net/1.0.33": {
@@ -39,6 +48,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "InputSimulator/1.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-D0LvRCPQMX6/FJHBjng+RO+wRDuHTJrfo7IAc7rmkPvRqchdVGJWg3y70peOtDy3OLNK+HSOwVkH4GiuLnkKgA==",
+      "path": "inputsimulator/1.0.4",
+      "hashPath": "inputsimulator.1.0.4.nupkg.sha512"
     },
     "Json.Net/1.0.33": {
       "type": "package",

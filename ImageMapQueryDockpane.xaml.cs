@@ -100,7 +100,7 @@ namespace FGISAddin3
                 return;
             }
             else
-                MessageBox.Show("開始查詢!!，按鍵後請等待查詢結果出現!!", "通知");
+                MessageBox.Show("開始查詢，按鍵後請等待查詢結果出現", "通知");
 
             // 依不同的服務型態處理
             var imageType = serviceItem.ServiceType.ToString();
@@ -335,7 +335,7 @@ namespace FGISAddin3
             var filterEnd = txtFilterEnd.Text.Trim();
             var queryField = "OBJECTID";
             if( queryField.Equals("") || (filterFrom.Equals("") && filterEnd.Equals("")))
-                MessageBox.Show("無設定條件!!\n可能無法列出所有項目，按鍵繼續!!","通知");
+                MessageBox.Show("無設定條件\n可能無法列出所有項目，按鍵繼續","通知");
             else {
                 if( !filterFrom.Equals("") )
                     filterStr = filterStr + " AND "+ queryField + ">=" + quote + filterFrom + quote;
@@ -359,7 +359,7 @@ namespace FGISAddin3
             var filterFrom = txtFilterFrom.Text.Trim();
             var filterEnd = txtFilterEnd.Text.Trim();
             if( queryField.Equals("") || (filterFrom.Equals("") && filterEnd.Equals("")))
-                MessageBox.Show("此服務未設置查詢欄位或無設定條件!!\n系統將提供有限項目供查詢，按鍵繼續!!", "通知");
+                MessageBox.Show("此服務未設置查詢欄位或無設定條件\n系統將提供有限項目供查詢，按鍵繼續", "通知");
             else {
                 if( !filterFrom.Equals("") )
                     filterStr = filterStr + " AND "+ queryField + ">=" + quote + filterFrom + quote;

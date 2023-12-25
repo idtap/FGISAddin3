@@ -79,7 +79,7 @@ namespace FGISAddin3
         private void btnSelectPolygon_Click(object sender, RoutedEventArgs e)
         {
             mouseMode = 1;
-            MessageBox.Show("多邊形點選模式開啟!!，請接著以滑鼠點選要校正的多邊形", "特徵選取");
+            MessageBox.Show("多邊形點選模式開啟，請接著以滑鼠點選要校正的多邊形", "特徵選取");
         }
 
         private void btnSelectVertex_Click(object sender, RoutedEventArgs e)
@@ -87,17 +87,17 @@ namespace FGISAddin3
             if( nowVertexPoints.Count>0)
             {
                 mouseMode = 2;
-                MessageBox.Show("頂點點選模式開啟!!，請接著以滑鼠點選要自動校正的頂點", "頂點選取");
+                MessageBox.Show("頂點點選模式開啟，請接著以滑鼠點選要自動校正的頂點", "頂點選取");
             }
             else {
-                MessageBox.Show("無任何可點選的頂點!!，請先點取多邊形", "頂點選取");
+                MessageBox.Show("無任何可點選的頂點，請先點取多邊形", "頂點選取");
             }
         }
 
         private void btnAdjust_Click(object sender, RoutedEventArgs e)
         {
             if( nowVertexPoints.Count<=0 || nowSelectVertex == -1 ) {
-                MessageBox.Show("尚未選取頂點!!，請先點選頂點","修正");
+                MessageBox.Show("尚未選取頂點，請先點選頂點","修正");
             }
             else {
                 MessageBox.Show("按鍵後開始修正","修正");
@@ -108,7 +108,7 @@ namespace FGISAddin3
                 var areaEndValue = Convert.ToDouble(areaEnd.Text);
                 if( nowAreaValue<areaFromValue || nowAreaValue>areaEndValue )
                 {
-                    MessageBox.Show("期望校正面積必須在起訖範圍內!!，請調整後再試");
+                    MessageBox.Show("期望校正面積必須在起訖範圍內，請調整後再試");
                     return;
                 }
 

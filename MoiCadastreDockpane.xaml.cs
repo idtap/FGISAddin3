@@ -207,7 +207,7 @@ namespace FGISAddin3
             url += "?city=" + cmbCounty.SelectedValue.ToString() + 
                    "&sect=" + cmbSec.SelectedValue.ToString() + 
                    "&sectno=" + txtLandNo.Text.Trim();
-            MessageBox.Show("按鍵後請等待至結果出現!!","系統通知");
+            MessageBox.Show("按鍵後請等待至結果出現","系統通知");
             var xmlResult = Utility.myHttpGET(url, Encoding.UTF8);
             if (xmlResult.Substring(0, 5).Equals("error"))
             {

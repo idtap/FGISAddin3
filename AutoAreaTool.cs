@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MessageBox = System.Windows.MessageBox;
+using WindowsInput;
 
 namespace FGISAddin3
 {
@@ -25,10 +26,11 @@ namespace FGISAddin3
         private CIMPointSymbol markSelectSymbol = null;
         private string  markSelectLayerName = @"VertexSelectTemp";
         private GraphicsLayerCreationParams markSelectLayerCreationParams = null;
+        private InputSimulator _inputSimulator;
 
         // 面積校正工具初始化
         public AutoAreaTool() : base()
-        {
+        {            
             if (autoAreaWindow != null)
             {
                 autoAreaWindow.Show();
@@ -73,13 +75,19 @@ namespace FGISAddin3
             
         }
 
+        private void SimulateKeyPress()
+        {            
+            _inputSimulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.ESCAPE);
+        }
+
         public void CreateAutoAreaWindow()
         {
+            _inputSimulator = new InputSimulator();
             autoAreaWindow = new AutoAreaWindow();
             autoAreaWindow.Owner = FrameworkApplication.Current.MainWindow;
             autoAreaWindow.Closing += AutoAreaWindow_Closing;
-            autoAreaWindow.Closed += (o, e) => { 
-                //autoAreaWindow = null;
+            autoAreaWindow.Closed += (o, e) => {
+                //autoAreaWindow = null;                
             };
         }
 
@@ -87,7 +95,8 @@ namespace FGISAddin3
         void AutoAreaWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             e.Cancel = true;
-            autoAreaWindow.Hide();
+            autoAreaWindow.Hide();            
+            SimulateKeyPress();
         }
 
         // 此 AutoAreaTool 工具載入時(即 Ribbon 按鈕按下)
@@ -286,7 +295,7 @@ namespace FGISAddin3
                         });
                     }
                     else {
-                        MessageBox.Show("未點選到任何頂點!!，按鍵後再試", "頂點點選");
+                        MessageBox.Show("未點選到任何頂點，按鍵後再試", "頂點點選");
                     }
                 }
             });
