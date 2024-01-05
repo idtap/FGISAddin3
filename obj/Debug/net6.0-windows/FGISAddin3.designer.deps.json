@@ -6,6 +6,14 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
+      "InputSimulator/1.0.4": {
+        "runtime": {
+          "lib/net20/WindowsInput.dll": {
+            "assemblyVersion": "1.0.4.0",
+            "fileVersion": "1.0.4.0"
+          }
+        }
+      },
       "Json.Net/1.0.33": {
         "runtime": {
           "lib/netstandard2.0/Json.Net.dll": {
@@ -25,6 +33,13 @@
     }
   },
   "libraries": {
+    "InputSimulator/1.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-D0LvRCPQMX6/FJHBjng+RO+wRDuHTJrfo7IAc7rmkPvRqchdVGJWg3y70peOtDy3OLNK+HSOwVkH4GiuLnkKgA==",
+      "path": "inputsimulator/1.0.4",
+      "hashPath": "inputsimulator.1.0.4.nupkg.sha512"
+    },
     "Json.Net/1.0.33": {
       "type": "package",
       "serviceable": true,

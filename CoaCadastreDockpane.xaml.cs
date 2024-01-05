@@ -216,8 +216,6 @@ namespace FGISAddin3
                     Anonymous = true,
                     HideUserProperty = true,
                     URL = "https://coagis.colife.org.tw/arcgis/rest/services"                    
-                    //User = "User_CadastralMap",
-                    //Password = "User_CadastralMap2017coa"
                 };
             });
 

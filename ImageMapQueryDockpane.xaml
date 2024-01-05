@@ -14,17 +14,17 @@
             DisplayMemberPath="ServiceName" 
             SelectedValuePath="ServiceName" 
             IsEditable="True"             
-            Margin="65,12,0,558" Height="30" HorizontalAlignment="Left" Width="213"/>
-            <Label Content="條件設定(註:需有設定查詢欄位名的服務才有效)" Margin="2,51,10,524"/>
-            <Label Content="條件起:" Margin="2,92,225,0" VerticalAlignment="Top" Height="23"/>
+            Margin="65,14,0,560" Height="30" HorizontalAlignment="Left" Width="205" SelectionChanged="cmbService_SelectionChanged"/>
+            <Label Content="過濾條件設定:" Margin="2,55,10,520"/>
+            <Label Content="起:" Margin="86,88,164,0" VerticalAlignment="Top" Height="23" Width="30"/>
             <TextBox x:Name="txtFilterFrom" 
-            Height="30" Margin="65,87,0,487" HorizontalAlignment="Left" Width="84"/>
-            <Label Content="訖:" Margin="153,92,97,485"/>
+            Height="30" Margin="116,85,9,0" VerticalAlignment="Top"/>
+            <Label Content="訖:" Margin="85,123,165,454" RenderTransformOrigin="-4.075,1.254" Width="30"/>
             <TextBox x:Name="txtFilterEnd" 
-            Height="30" Margin="188,88,0,486" HorizontalAlignment="Left" Width="90"/>
+            Height="30" Margin="116,123,9,451"/>
             <Button x:Name="ImageQueryButton" Content="查詢" 
             Click="ImageQueryButton_Click" 
-                Margin="7,172,10,0" Height="24" VerticalAlignment="Top" 
+                Margin="7,186,10,0" Height="24" VerticalAlignment="Top" 
                 />
             <Label Content="查詢結果(註:雙按項目可定位地圖)" Margin="2,215,26,360"/>
             <ListBox 
@@ -37,7 +37,8 @@
             <Button x:Name="ImageQueryClearButton" Content="清除" 
             Click="ImageQueryClearButton_Click" Margin="230,450,0,0" Width="48" VerticalAlignment="Top" Height="24" HorizontalAlignment="Left" 
                 />
-            <Label Content="(註:依服務設定的查詢欄名無條件請設成空白跳過)" Margin="0,130,0,445" HorizontalAlignment="Center" Width="278"/>
+            <Label Content="(註:依服務設定的查詢欄名無條件請設成空白跳過)" Margin="0,151,0,424" HorizontalAlignment="Center" Width="278"/>
+            <Label x:Name="lblFilterField" Content="[OBJECTID]" HorizontalAlignment="Left" Margin="8,89,0,0" VerticalAlignment="Top" Width="78"/>
         </Grid>
     </StackPanel>
 </UserControl>

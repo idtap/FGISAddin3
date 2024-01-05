@@ -189,7 +189,15 @@ namespace FGISAddin3
                     if (serviceItem.FieldType.ToString().Equals("C"))
                         quote = "'";
 
-                    var listResult = await ImageQuery_MapServer(serviceItem.QueryField.ToString().Trim(),
+                    // 無設定查詢欄位則使用 ObjectID
+                    var queryField = serviceItem.QueryField.ToString().Trim();
+                    if( queryField.Equals("") )
+                    {
+                        queryField = "OBJECTID";
+                        quote = "";
+                    }
+                        
+                    var listResult = await ImageQuery_MapServer(queryField,
                         imageryLayerUrl, quote);
 
                     // 將資料加到 listbox, 準備點選定位
@@ -306,6 +314,47 @@ namespace FGISAddin3
                     }
                 }
             }
+            else if( imageType.Equals("WMTS") )
+            {
+                // 查詢前先清除之前查詢
+                clearPrevQuery();
+                
+                var imageryLayerUrl = serviceItem.ServiceUrl.ToString();
+                var serverConnection = new CIMInternetServerConnection 
+                { 
+                    URL = imageryLayerUrl
+                };
+                var connection = new CIMWMTSServiceConnection 
+                { 
+                    ServerConnection = serverConnection
+                    //LayerName = "MTN"
+                };
+
+                var layerParams = new LayerCreationParams(connection);
+                layerParams.MapMemberPosition = MapMemberPosition.AddToTop;
+                Layer layer = null;
+                Map map = MapView.Active.Map;
+                await QueuedTask.Run(() =>
+                {
+                    try
+                    {
+                        layer = LayerFactory.Instance.CreateLayer<TiledServiceLayer>(layerParams, map);
+                        if (layer == null)
+                        {
+                            MessageBox.Show("設定有誤或目前無法連上主機，稍後再試", "通知");
+                        }
+                        else
+                        {
+                            MapView.Active.ZoomTo(layer);
+                            MessageBox.Show("影像圖磚式圖層僅能開啟無法查詢明細，按鍵後繼續","通知");                            
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("設定有誤或目前無法連上主機，稍後再試", "通知");
+                    }
+                });
+            }
             else if( imageType.Equals("afasiUAV") )
             {
                 // 查詢前先清除之前查詢
@@ -359,7 +408,7 @@ namespace FGISAddin3
             var filterFrom = txtFilterFrom.Text.Trim();
             var filterEnd = txtFilterEnd.Text.Trim();
             if( queryField.Equals("") || (filterFrom.Equals("") && filterEnd.Equals("")))
-                MessageBox.Show("此服務未設置查詢欄位或無設定條件\n系統將提供有限項目供查詢，按鍵繼續", "通知");
+                MessageBox.Show("此服務無設定條件\n系統將提供有限項目供查詢，按鍵繼續", "通知");
             else {
                 if( !filterFrom.Equals("") )
                     filterStr = filterStr + " AND "+ queryField + ">=" + quote + filterFrom + quote;
@@ -474,8 +523,34 @@ namespace FGISAddin3
                 _graphic.Clear();
             }
         }
+
+        private void cmbService_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ImageServiceModel serviceItem = null;
+            if (cmbService.SelectedItem is ImageServiceModel selectedService)
+                serviceItem = ImageServiceTool.getItemByServiceName(selectedService.ServiceName);
+            if (serviceItem != null)
+            {
+                var imageType = serviceItem.ServiceType.ToString();
+                if( imageType.Equals("ImageServer") )
+                    lblFilterField.Content = "[OBJECTID]";
+                else if( imageType.Equals("WMS") )
+                    lblFilterField.Content = "[圖層名]";
+                else if( imageType.Equals("MapServer") )
+                {
+                    var queryField = serviceItem.QueryField.ToString().Trim();
+                    if( queryField.Equals("") )
+                        lblFilterField.Content = "[OBJECTID]";
+                    else
+                        lblFilterField.Content = "["+queryField+"]";
+                }
+                else
+                    lblFilterField.Content = "[OBJECTID]";
+            }
+
+        }
     }
-    
+
     public class myFeature
     {
         public Attributes attributes { get; set; }

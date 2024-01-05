@@ -85,10 +85,7 @@ namespace FGISAddin3
             _inputSimulator = new InputSimulator();
             autoAreaWindow = new AutoAreaWindow();
             autoAreaWindow.Owner = FrameworkApplication.Current.MainWindow;
-            autoAreaWindow.Closing += AutoAreaWindow_Closing;
-            autoAreaWindow.Closed += (o, e) => {
-                //autoAreaWindow = null;                
-            };
+            autoAreaWindow.Closing += AutoAreaWindow_Closing;            
         }
 
         // 關閉作業視窗時
@@ -131,7 +128,7 @@ namespace FGISAddin3
             }
 
             // 取下滑鼠位置轉換成 Map Point 圖徵，後續處理
-            return QueuedTask.Run(() =>
+            return QueuedTask.Run(async () =>
             {
                 var posPoint = MapView.Active.ClientToMap(e.ClientPoint);
                 MapPoint mapPoint = MapPointBuilder.CreateMapPoint(posPoint.X, posPoint.Y, MapView.Active.Map.SpatialReference);
@@ -229,7 +226,7 @@ namespace FGISAddin3
                                             }
                                             // 計算面積
                                             //var area = GeometryEngine.Instance.Area(polygon);
-                                            var area = AutoAreaWindow.CalculatePolygonArea(
+                                            var area = await AutoAreaWindow.CalculatePolygonArea(
                                                            AutoAreaWindow.nowVertexPoints);
                                             autoAreaWindow.SetNowArea(area);
                                             autoAreaWindow.SetAreaFrom(area-area*0.03);
@@ -237,7 +234,7 @@ namespace FGISAddin3
                                             autoAreaWindow.SetAdjustArea(area);
                                         }
                                     }
-                                    QueuedTask.Run(() => {
+                                    await QueuedTask.Run(() => {
                                          myGraphicLayer.UnSelectElements();
                                     });
                                 }

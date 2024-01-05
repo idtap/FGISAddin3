@@ -52,5 +52,14 @@
       "Token"       : "",
       "QueryField"  : "SRC_DATE",
       "FieldType"   : "N"
+   },
+   {
+      "ServiceName" : "ArcGIS WMTS Sample",
+      "ServiceType" : "WMTS",
+      "ServiceUrl"  : "https://www.ign.es/wmts/mapa-raster?LayerName=MTN",
+      "ProxyUrl"    : "",
+      "Token"       : "",
+      "QueryField"  : "",
+      "FieldType"   : "C"
    }
 ]

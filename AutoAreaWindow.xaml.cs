@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows;
 using ArcGIS.Core.Geometry;
 using ArcGIS.Core.Internal.Geometry;
@@ -60,7 +61,7 @@ namespace FGISAddin3
             });
         }
 
-        public static double CalculatePolygonArea(List<MapPoint> xyList)
+        public static double CalculatePolygonArea_self(List<MapPoint> xyList)
         {
            double area = 0;
            int n = xyList.Count;
@@ -75,6 +76,20 @@ namespace FGISAddin3
            area = Math.Abs(area) / 2.0;
            return area;
         }
+
+        public static async Task<double> CalculatePolygonArea(List<MapPoint> mapPoints)
+        {
+            double area = 0;
+            await QueuedTask.Run(() =>
+            {
+                PolygonBuilder polygonBuilder = new PolygonBuilder(mapPoints);
+                Polygon polygon = polygonBuilder.ToGeometry();
+                area = GeometryEngine.Instance.Area(polygon);
+            });
+
+            return area;
+        }
+        
 
         private void btnSelectPolygon_Click(object sender, RoutedEventArgs e)
         {
@@ -94,7 +109,7 @@ namespace FGISAddin3
             }
         }
 
-        private void btnAdjust_Click(object sender, RoutedEventArgs e)
+        private async void btnAdjust_Click(object sender, RoutedEventArgs e)
         {
             if( nowVertexPoints.Count<=0 || nowSelectVertex == -1 ) {
                 MessageBox.Show("尚未選取頂點，請先點選頂點","修正");
@@ -126,7 +141,7 @@ namespace FGISAddin3
                 double unitY = dy / distance;
                 double d = 0.01;                 // 每次 0.01 公尺找
                 var vertexPoints = new List<MapPoint>(nowVertexPoints);
-                var findArea = CalculatePolygonArea(vertexPoints);
+                double findArea = await CalculatePolygonArea(vertexPoints);
                 double x = x2;
                 double y = y2;
                 if( adjustAreaValue<nowAreaValue )
@@ -137,7 +152,7 @@ namespace FGISAddin3
                         y = y - d * unitY;
                         var mapPoint = MapPointBuilder.CreateMapPoint(x, y, MapView.Active.Map.SpatialReference);
                         vertexPoints[nowSelectVertex] = mapPoint;
-                        findArea = CalculatePolygonArea(vertexPoints);
+                        findArea = await CalculatePolygonArea(vertexPoints);
                     }
                 }
                 else
@@ -148,7 +163,7 @@ namespace FGISAddin3
                         y = y + d * unitY;
                         var mapPoint = MapPointBuilder.CreateMapPoint(x, y, MapView.Active.Map.SpatialReference);
                         vertexPoints[nowSelectVertex] = mapPoint;
-                        findArea = CalculatePolygonArea(vertexPoints);
+                        findArea = await CalculatePolygonArea(vertexPoints);
                     }
                 }
                 MessageBox.Show($"找到新位置 x:{x},y:{y}\n校正後新面積:{findArea}\n按鍵後修正圖徵");

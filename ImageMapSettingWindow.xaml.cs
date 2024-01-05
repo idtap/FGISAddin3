@@ -16,6 +16,7 @@ namespace FGISAddin3
             cboServiceType.Items.Add("ImageServer");
             cboServiceType.Items.Add("MapServer");
             cboServiceType.Items.Add("WMS");
+            cboServiceType.Items.Add("WMTS");
 
             // 載入初始資料
             LoadInitialData();
